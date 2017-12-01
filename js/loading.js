@@ -48,8 +48,8 @@ $(function() {
             });
         };
     };
-    var resources = [ "http://game.gtimg.cn/images/game/cp/a20160310mstt/css/index.css", "http://game.gtimg.cn/images/game/cp/a20160310mstt/js/share.js", "http://game.gtimg.cn/images/game/cp/a20160310mstt/js/lib/touch.js", "http://game.gtimg.cn/images/game/cp/a20160310mstt/js/music.js" ];
-    var images = [ "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/light/bg2_01.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/light/bg2_02.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/light/bg2_03.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/light/bg2_04.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/light/bg2_05.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/dark/bg2_01.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/dark/bg2_02.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/dark/bg2_03.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/dark/bg2_04.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/dark/bg2_05.jpg", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/flash/img_01.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/flash/img_02.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/flash/img_03.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/flash/img_04.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key01.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key01_2.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key02.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key02_2.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key03.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key04.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key04_2.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key05.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key06.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key07.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key08.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/key/key09.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/loading/loading01.png", "http://game.gtimg.cn/images/game/cp/a20160310mstt/img/loading/loading02.png" ];
+    var resources = [ "./css/index.css", "./js/lib/touch.js" ];
+    var images = [ "./image/light/bg2_01.jpg", "./image/light/bg2_02.jpg", "./image/light/bg2_03.jpg", "./image/light/bg2_04.jpg", "./img/light/bg2_05.jpg", "./img/dark/bg2_01.jpg", "./img/dark/bg2_02.jpg", "./img/dark/bg2_03.jpg", "./img/dark/bg2_04.jpg", "./img/dark/bg2_05.jpg", "./img/flash/img_01.png", "./img/flash/img_02.png", "./img/flash/img_03.png", "./img/flash/img_04.png", "./img/key/key01.png", "./img/key/key01_2.png", "./img/key/key02.png", "./img/key/key02_2.png", "./img/key/key03.png", "./img/key/key04.png", "./img/key/key04_2.png", "./img/key/key05.png", "./img/key/key06.png", "./img/key/key07.png", "./img/key/key08.png", "./img/key/key09.png", "./img/loading/loading01.png", "./img/loading/loading02.png" ];
     resources = resources.concat(images);
     new PreLoad(resources, {
         onload: function(load) {
@@ -59,7 +59,7 @@ $(function() {
             //   'transform': 'scale('+ percent/100 +', '+ percent/100 +')',
             // })
             setTimeout(function() {
-                $("#audioBg")[0].play();
+                //$("#audioBg")[0].play();
                 $("#jsBgBox").removeClass("dark");
                 if (count == total) {
                     var el = $("#loading");

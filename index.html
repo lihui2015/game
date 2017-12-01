@@ -11,7 +11,7 @@
                     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
                     recalc = function () {
                         var clientWidth = docEl.clientWidth;
-                        docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+                        docEl.style.fontSize = 100 * (clientWidth / 540) + 'px';
                     };
             recalc();
             if (!doc.addEventListener) return;
@@ -33,33 +33,20 @@
             <div class="swiper-slide"></div>
             <div class="itembox">
                 <div class="animate-items">
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item1'});" class="item" data-iskey="false" data-type="1" data-title="抽屉里面放着乒乓球拍" data-disc="已经开胶了，感觉有些历史了" data-img="none">床头抽屉</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item2'});" class="item light_a" data-iskey="false" data-type="2" data-title="" data-disc="" data-img="none" style="visibility: hidden;">床头灯</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item3'});" class="item" data-iskey="false" data-type="1" data-title="枕头下面藏着一本游戏杂志" data-disc="Gamer杂志，好像在哪见过？" data-img="none">枕头</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item4'});" class="item" data-iskey="false" data-type="1" data-title="衣柜里有一件“10”号球衣" data-disc="有种青春的味道呢" data-img="none">衣柜</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item5'});" class="item light_b" data-iskey="false" data-type="2" data-title="" data-disc="" data-img="none">台灯</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item6'});" id="key01" class="item" data-iskey="true" data-type="3" data-title="诶，打开光驱看看？" data-disc="" data-tips="打开光驱" data-img="01">电脑</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item7'});" class="item" data-iskey="false" data-type="1" data-title="抽屉里面放着不少游戏杂志" data-disc="《电攻》《电软》现在都停刊了" data-img="none">书桌抽屉</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item8'});" class="item" data-iskey="false" data-type="1" data-title="书包里面塞了不少课本" data-disc="不过看起来都很新" data-img="none">书包</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item9'});" id="light" class="item" data-iskey="false" data-type="4" data-title="灯关掉了有点暗" data-disc="但好像有什么在微微发光" data-img="none">电灯开关</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item10'});" id="poster" class="item" data-iskey="false" data-type="1" data-title="海报背后的门上有一行字" data-disc="“每个人都有不可被辜负的天分”" data-img="none">海报</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item1'});" class="item" data-iskey="false" data-type="1" data-title="01" data-disc="这件衣服目测会火，但里面好像没什么机关。" data-img="01">大衣</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item2'});" id="key01" class="item" data-iskey="true" data-type="3" data-title="01" data-disc="" data-tips="" data-img="none" data-index="1">黄金面具</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item3'});" class="item" data-iskey="false" data-type="1" data-title="02" data-disc="走到这里了，体能还跟得上吗？你该加强运动啦！" data-img="02">篮球</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item4'});" id="key02" class="item" data-iskey="true" data-type="3" data-title="02" data-disc="" data-tips="" data-img="none" data-index="2">圣火火炬</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item5'});" class="item" data-iskey="false" data-type="1" data-title="03" data-disc="这个包垂涎了好久。买了心疼一时，不买惦记一年。" data-img="03">包</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item6'});" class="item" data-iskey="false" data-type="1" data-title="04" data-disc="虽然它看起来很闪耀，但好像不是我们要找的东西。" data-img="04">项链</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item7'});" id="key03" class="item" data-iskey="true" data-type="3" data-title="03" data-disc="" data-tips="" data-img="none" data-index="3">钥匙</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item8'});" class="item" data-iskey="false" data-type="1" data-title="05" data-disc="这个相机落满了灰，估计是不能用了，我得去升级个装备。" data-img="05">相机</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item9'});" class="item" data-iskey="false" data-type="1" data-title="06" data-disc="真的勇士敢于面对凛冽的寒风和日渐后移的发际线，一顶好帽子让你素颜也时髦。" data-img="06">帽子</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item10'});" class="item" data-iskey="false" data-type="1" data-title="07" data-disc="魔镜魔镜告诉我，我跟埃及艳后谁比较美？" data-img="07">镜子</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item11'});" id="key04" class="item" data-iskey="true" data-type="3" data-title="04" data-disc="" data-tips="" data-img="none" data-index="4">杖上宝石</div>
+                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item12'});" class="item" data-iskey="false" data-type="1" data-title="08" data-disc="这只熊跟小时候的那个好像！满满的回忆杀！" data-img="08">玩具熊</div>
                 </div>
-                <div class="noanimate-items">
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item1'});" class="item" data-iskey="false" data-type="1" data-title="日历上3月25号被画上了一个红圈" data-disc="应该是个重要的日子吧" data-img="none">挂历</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item2'});" id="key03" class="item" data-iskey="true" data-type="3" data-title="原来是一个街机模样的存钱罐" data-disc="硬币投进去好像卡住了，摇一摇试试" data-tips="摇一摇试试" data-img="03">储钱罐</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item3'});" id="key04" class="item" data-iskey="true" data-type="3" data-title="红白机上落了一层灰尘" data-disc="卡带插上去似乎有些接触不良" data-tips="吹掉卡带接口的灰尘" data-img="04">红白机</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item4'});" id="video" class="item" data-iskey="false" data-type="5" data-title="收音机信号好像不太好" data-disc="播放起了天气预报" data-img="none">收音机</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item5'});" id="key02" class="item" data-iskey="true" data-type="3" data-title="这手机居然还有电" data-disc="有一条未读信息" data-tips="请查看短信" data-img="02">手机</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item6'});" id="trash" class="item" data-iskey="false" data-type="1" data-title="好像没有什么线索" data-disc="只有一些用过的卫生纸" data-img="none">垃圾桶</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item7'});" class="item" data-iskey="false" data-type="1" data-title="这套漫画来来回回看了多少遍了" data-disc="好像最近推出手游了？" data-img="none">龙珠</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item8'});" id="door" class="item" data-iskey="false" data-type="1" data-title="门好像需要密码才能打开" data-disc="房间里好像隐藏着什么东西" data-img="none">房门</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item9'});" class="item" data-iskey="false" data-type="1" data-title="曾梦想仗剑走天涯 " data-disc="看一看世界的繁华" data-img="none">地图</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item10'});" class="item" data-iskey="false" data-type="1" data-title="说了那么多年要健身" data-disc="都没有坚持下来" data-img="none">哑铃</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item11'});" class="item" data-iskey="false" data-type="1" data-title="窗户好像生锈了" data-disc="打不开呢" data-img="none">窗</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item12'});" class="item" data-iskey="false" data-type="1" data-title="好久不打球了" data-disc="自从那次扭到脚后…… " data-img="none">篮球</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item13'});" class="item" data-iskey="false" data-type="1" data-title="一堆杂物" data-disc="各种坏掉的游戏手办" data-img="none">衣柜上杂物</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.noanimate.item14'});" class="item" data-iskey="false" data-type="1" data-title="怀念那时的紫金王朝" data-disc="可惜科比都要退役了 " data-img="none">NBA海报</div>
-                </div>
+                <div class="noanimate-items"></div>
                 <div class="window">
                     <div class="bg starfield" id="starfield0">
                         <div></div>
@@ -81,17 +68,16 @@
     </div>
     <i class="icon-tips" id="jsTips" data-title="找到开关" data-disc="“说不定能有意外的发现”"></i>
     <div class="dialog" id="dialogBox">
-        <div class="dialog-tips">
-            <h3>日历上3月25号被画上了一个红圈</h3>
-            <p>应该是个重要的日子吧</p>
-        </div>
         <div class="dialog-key">
-            <div class="key-img"><span ontouchend="pgvSendClick({hottag:'a20160310mstt.index.key.item'});"></span></div>
-            <span class="key-tips">吹掉卡带接口的灰尘</span>
+            <div class="key-img"></div>
         </div>
-        <div class="dialog-progress">已获得线索：<span>0</span>／4</div>
+        <div class="dialog-tips">
+            <p></p>
+            <div></div>
+        </div>
         <div class="dialog-mask"></div>
     </div>
+    <div class="dialog-progress">已获得线索：<span>0</span>／4</div>
     <div class="lock-key">
         <div class="lock-key_hd">
             <p>输入密码</p>
@@ -142,29 +128,21 @@
 </div>
 
 
-<audio id="audioBg" src="./mp3/bg.mp3" loop="true"></audio>
+<!--<audio id="audioBg" src="./mp3/bg.mp3" loop="true"></audio>
 <audio id="audioLight" src="./mp3/light.mp3"></audio>
 <audio id="audioPoster" src="./mp3/poster.mp3"></audio>
 <audio id="audioTrash" src="./mp3/trash.mp3"></audio>
 <audio id="audioVideo" src="./mp3/video.mp3"></audio>
+<audio id="audioResult" src="./mp3/result.mp3"></audio>-->
 <audio id="audioResult" src="./mp3/result.mp3"></audio>
-<script src="./js/event/ping_tcss_ied.js"></script>
-<script>if(typeof(pgvMain) == 'function') pgvMain();</script>
 <script src="./js/lib/zepto.min.js"></script>
 <script src="./js/lib/touch.js"></script>
 <script src="./js/lib/iscroll.js"></script>
 <script src="./js/lib/shake.js"></script>
 <script src="./js/loading.js"></script>
 <script src="./js/index.js"></script>
-<script src="./js/event/TGMobileShare.min.js"></script>
 <script>
-    TGMobileShare({
-        shareTitle:'要不是10年游戏老司机真玩不了这个',
-        shareDesc:'据说只有3%的人能走出这个密室',
-        shareImgUrl:'./img/share.jpg',
-        shareLink:'http://game.qq.com/cp/a20160310mstt/index.html',
-        actName:'a20160310mstt'
-    });
+
     var myScroll;
 
     function loaded () {
