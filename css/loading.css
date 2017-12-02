@@ -54,13 +54,13 @@
 
 .loading-animate .animate-item {
     position: absolute;
-    left: .1rem;
-    width: 2.155rem;
-    height: 3.51rem;
+    left: .16875rem;
+    width: 3.636rem;
+    height: 5.923rem;
     -webkit-transform: scale(.2);
     transform: scale(.2);
-    -webkit-transform-origin: 1.5rem 1.75rem;
-    transform-origin: 1.5rem 1.75rem;
+    -webkit-transform-origin: 2.53rem 2.953rem;
+    transform-origin: 2.53rem 2.953rem;
     background: url(../img/loading/loading01_s.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
@@ -87,11 +87,11 @@
 
 .loading .tips {
     text-align: center;
-    font-size: .14rem;
+    font-size: .23625rem;
     position: absolute;
     left: 0;
     width: 100%;
-    top: .3rem;
+    top: .5rem;
     display: none
 }
 
@@ -111,18 +111,18 @@
     left: 0;
     width: 100%;
     text-align: center;
-    margin-top: .9rem;
-    font-size: .14rem
+    margin-top: 1.5rem;
+    font-size: .23625rem
 }
 
 .loading .text p {
     display: none;
     margin: 0;
-    line-height: .2rem
+    line-height: .3375rem
 }
 
 .loading .text p:nth-child(2) {
-    margin-bottom: .2rem
+    margin-bottom: .3375rem
 }
 
 .loading .text.show p:nth-child(1) {
@@ -155,11 +155,11 @@
     position: absolute;
     top: 50%;
     left: 0;
-    margin-top: .7rem;
+    margin-top: 1.18125rem;
     width: 100%;
     text-align: center;
-    font-size: .14rem;
-    line-height: .18rem
+    font-size: .23625rem;
+    line-height: .3rem
 }
 
 @-webkit-keyframes run {

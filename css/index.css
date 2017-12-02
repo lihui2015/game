@@ -24,7 +24,7 @@ body {
 #scroller {
     position: absolute;
     z-index: 1;
-    width: 27rem;
+    width: 18.805rem;
     height: 100%;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -57,7 +57,7 @@ body {
 
 .swiper-wrapper .itembox {
     position: absolute;
-    left: 4.1rem;
+    left: 0rem;
     top: -.8rem
 }
 
@@ -84,14 +84,15 @@ body {
 }
 
 .swiper-wrapper .swiper-slide:nth-child(4) {
+    width:2.605rem !important;
     background-image: url(../image/light/bg2_04.jpg)
 }
 
-.swiper-wrapper .swiper-slide:nth-child(5) {
+/*.swiper-wrapper .swiper-slide:nth-child(5) {
     background-image: url(../image/light/bg2_05.jpg)
-}
+}*/
 
-.swiper-wrapper.dark .swiper-slide:nth-child(1) {
+/*.swiper-wrapper.dark .swiper-slide:nth-child(1) {
     background-image: url(../img/dark/bg2_01.jpg)
 }
 
@@ -109,7 +110,7 @@ body {
 
 .swiper-wrapper.dark .swiper-slide:nth-child(5) {
     background-image: url(../img/dark/bg2_05.jpg)
-}
+}*/
 
 .swiper-wrapper.dark .window {
     display: none

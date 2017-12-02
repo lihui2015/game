@@ -49,7 +49,21 @@ $(function() {
         };
     };
     var resources = [ "./css/index.css", "./js/lib/touch.js" ];
-    var images = [ "./image/light/bg2_01.jpg", "./image/light/bg2_02.jpg", "./image/light/bg2_03.jpg", "./image/light/bg2_04.jpg", "./img/light/bg2_05.jpg", "./img/dark/bg2_01.jpg", "./img/dark/bg2_02.jpg", "./img/dark/bg2_03.jpg", "./img/dark/bg2_04.jpg", "./img/dark/bg2_05.jpg", "./img/flash/img_01.png", "./img/flash/img_02.png", "./img/flash/img_03.png", "./img/flash/img_04.png", "./img/key/key01.png", "./img/key/key01_2.png", "./img/key/key02.png", "./img/key/key02_2.png", "./img/key/key03.png", "./img/key/key04.png", "./img/key/key04_2.png", "./img/key/key05.png", "./img/key/key06.png", "./img/key/key07.png", "./img/key/key08.png", "./img/key/key09.png", "./img/loading/loading01.png", "./img/loading/loading02.png" ];
+
+    var images = [ "./image/light/bg2_01.jpg", "./image/light/bg2_02.jpg",
+"./image/light/bg2_03.jpg", "./image/light/bg2_04.jpg",
+"./image/popup/img/01.jpg", "./image/popup/img/02.jpg",
+"./image/popup/img/03.jpg", "./image/popup/img/04.jpg",
+"./image/popup/img/05.jpg", "./image/popup/img/06.jpg",
+"./image/popup/img/07.jpg", "./image/popup/img/08.jpg",
+"./image/popup/text/discount/01.png", "./image/popup/text/discount/02.png",
+"./image/popup/text/discount/03.png", "./image/popup/text/discount/04.png",
+"./image/popup/text/discount/05.png", "./image/popup/text/discount/06.png",
+"./image/popup/text/discount/07.png", "./image/popup/text/discount/08.png",
+"./image/popup/text/key/01.png", "./image/popup/text/key/02.png",
+"./image/popup/text/key/03.png", "./image/popup/text/key/04.png",
+"./img/loading/loading01.png", "./img/loading/loading02.png" ]; 
+
     resources = resources.concat(images);
     new PreLoad(resources, {
         onload: function(load) {
