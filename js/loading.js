@@ -73,7 +73,7 @@ $(function() {
             //   'transform': 'scale('+ percent/100 +', '+ percent/100 +')',
             // })
             setTimeout(function() {
-                //$("#audioBg")[0].play();
+                $("#audioBg")[0].play();
                 $("#jsBgBox").removeClass("dark");
                 if (count == total) {
                     var el = $("#loading");
