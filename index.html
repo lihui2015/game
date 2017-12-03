@@ -19,13 +19,11 @@
         })(document, window);
     </script>
     <link rel="stylesheet" type="text/css" href="./css/loading.css">
-
 </head>
 <body onload="loaded()">
-
 <div id="wrapper">
     <div class="swiper-container" id="scroller">
-        <div class="swiper-wrapper dark" id="jsBgBox">
+        <div class="swiper-wrapper" id="jsBgBox">
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
@@ -33,18 +31,18 @@
             <!-- <div class="swiper-slide"></div> -->
             <div class="itembox">
                 <div class="animate-items">
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item1'});" class="item" data-iskey="false" data-type="1" data-title="01" data-disc="这件衣服目测会火，但里面好像没什么机关。" data-img="01">大衣</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item2'});" id="key01" class="item" data-iskey="true" data-type="3" data-title="01" data-disc="" data-tips="" data-img="none" data-index="1">黄金面具</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item3'});" class="item" data-iskey="false" data-type="1" data-title="02" data-disc="走到这里了，体能还跟得上吗？你该加强运动啦！" data-img="02">篮球</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item4'});" id="key02" class="item" data-iskey="true" data-type="3" data-title="02" data-disc="" data-tips="" data-img="none" data-index="2">圣火火炬</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item5'});" class="item" data-iskey="false" data-type="1" data-title="03" data-disc="这个包垂涎了好久。买了心疼一时，不买惦记一年。" data-img="03">包</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item6'});" class="item" data-iskey="false" data-type="1" data-title="04" data-disc="虽然它看起来很闪耀，但好像不是我们要找的东西。" data-img="04">项链</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item7'});" id="key03" class="item" data-iskey="true" data-type="3" data-title="03" data-disc="" data-tips="" data-img="none" data-index="3">钥匙</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item8'});" class="item" data-iskey="false" data-type="1" data-title="05" data-disc="这个相机落满了灰，估计是不能用了，我得去升级个装备。" data-img="05">相机</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item9'});" class="item" data-iskey="false" data-type="1" data-title="06" data-disc="真的勇士敢于面对凛冽的寒风和日渐后移的发际线，一顶好帽子让你素颜也时髦。" data-img="06">帽子</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item10'});" class="item" data-iskey="false" data-type="1" data-title="07" data-disc="魔镜魔镜告诉我，我跟埃及艳后谁比较美？" data-img="07">镜子</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item11'});" id="key04" class="item" data-iskey="true" data-type="3" data-title="04" data-disc="" data-tips="" data-img="none" data-index="4">杖上宝石</div>
-                    <div ontouchend="pgvSendClick({hottag:'a20160310mstt.index.animate.item12'});" class="item" data-iskey="false" data-type="1" data-title="08" data-disc="这只熊跟小时候的那个好像！满满的回忆杀！" data-img="08">玩具熊</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="01" data-disc="这件衣服目测会火，但里面好像没什么机关。" data-img="01">大衣</div>
+                    <div id="key01" class="item" data-iskey="true" data-type="3" data-title="01" data-disc="" data-tips="" data-img="key01" data-index="1">黄金面具</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="02" data-disc="走到这里了，体能还跟得上吗？你该加强运动啦！" data-img="02">篮球</div>
+                    <div id="key02" class="item" data-iskey="true" data-type="3" data-title="02" data-disc="" data-tips="" data-img="key02" data-index="2">圣火火炬</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="03" data-disc="这个包垂涎了好久。买了心疼一时，不买惦记一年。" data-img="03">包</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="04" data-disc="虽然它看起来很闪耀，但好像不是我们要找的东西。" data-img="04">项链</div>
+                    <div id="key03" class="item" data-iskey="true" data-type="3" data-title="03" data-disc="" data-tips="" data-img="key03" data-index="3">钥匙</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="05" data-disc="这个相机落满了灰，估计是不能用了，我得去升级个装备。" data-img="05">相机</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="06" data-disc="真的勇士敢于面对凛冽的寒风和日渐后移的发际线，一顶好帽子让你素颜也时髦。" data-img="06">帽子</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="07" data-disc="魔镜魔镜告诉我，我跟埃及艳后谁比较美？" data-img="07">镜子</div>
+                    <div id="key04" class="item" data-iskey="true" data-type="3" data-title="04" data-disc="" data-tips="" data-img="key04" data-index="4">杖上宝石</div>
+                    <div class="item" data-iskey="false" data-type="1" data-title="08" data-disc="这只熊跟小时候的那个好像！满满的回忆杀！" data-img="08">玩具熊</div>
                 </div>
                 <div class="noanimate-items"></div>
                 <div class="window">
@@ -77,7 +75,14 @@
         </div>
         <div class="dialog-mask"></div>
     </div>
-    <div class="dialog-progress">已获得线索：<span>0</span>／4</div>
+    <div class="dialog-progress">
+        <div class="tool-wrap">
+            <div class="tool J_tool"></div>
+            <div class="tool J_tool"></div>
+            <div class="tool J_tool"></div>
+            <div class="tool J_tool"></div>
+        </div>
+    </div>
     <div class="lock-key">
         <div class="lock-key_hd">
             <p>输入密码</p>
@@ -99,12 +104,12 @@
                 <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item0'});" class="num-item" data-num="0">0  </li>
             </ul>
         </div>
-        <span ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.cancel'});" class="lock-key_close">取消</span>
+        <span class="lock-key_close">取消</span>
     </div>
     <div class="loading" id="loading">
         <div class="loading-animate">
             <div class="tips">点击把手开门</div>
-            <div class="animate-item" ontouchend="pgvSendClick({hottag:'a20160310mstt.index.door.item'});"></div>
+            <div class="animate-item"></div>
             <div class="text">
                 <p>如果打开这扇门</p>
                 <p>就是你当年的那个房间...</p>

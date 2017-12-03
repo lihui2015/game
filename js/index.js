@@ -4,7 +4,9 @@ $(function() {
     var $dialog = $("#dialogBox"), $dialogKey = $dialog.find(".dialog-key");
     var $dialogTips = $(".dialog-tips");
     var $dialogTitle = $dialogTips.find("div"), $dialogDisc = $dialogTips.find("p");
+    var $dialogProgress = $(".dialog-progress");
     var isFinished = false;
+    var isKeyAppear = false;
     var addShakeEvent = function() {
         var ShakeEvent = new Shake({
             threshold: 15,
@@ -27,12 +29,10 @@ $(function() {
                 var  disc = $this.attr("data-disc"), img = $this.attr("data-img");
                 showDialog(title, isKey, disc, img);
             } else if (type == 3) {
-                if (isFinished == true){
-                    showResult();
-                }else{
-                    var Tips = $this.attr("data-tips"), index = $this.attr(" data-index");
-                    showDialog(title, isKey, '', '', Tips, index);
-                }
+                
+                var Tips = $this.attr("data-tips"), index = $this.attr("data-index");
+                showDialog(title, isKey, '', '', Tips, index);
+                
             }
         }, 500);
     });
@@ -42,40 +42,22 @@ $(function() {
     });
     var showResult = function() {
         var count = key1 + key2 + key3 + key4;
-        var $progress = $(".dialog-progress span");
-        var title = "", disc = "", img = "";
-        $progress.html(count);
-        // dialogFlag = true;
-        if (count == 1) {
-            title = "获得一块“记忆碎片”! ";
-            disc = "上面好像有奇怪的图案</br>好像只是其中一部分";
-            img = "06";
-            showDialog(title, disc, img, "false");
-        } else if (count == 2) {
-            title = "获得第二块“记忆碎片”！ ";
-            disc = "两块碎片叠在一起了！</br>图案还是看不太清";
-            img = "07";
-            showDialog(title, disc, img, "false");
-        } else if (count == 3) {
-            title = "获得第三块“记忆碎片”！";
-            disc = "把碎片叠到一起</br>看起来是些数字";
-            img = "08";
-            showDialog(title, disc, img, "false");
-        } else if (count == 4) {
-            title = "获得最后一块“记忆碎片”！ ";
-            disc = "终于完成了！“0325”！</br>快去开门解锁吧！";
-            img = "09";
-            // setTimeout(function(){
-            //   $('.lock-key').addClass('show');
-            // },2000);
+        var disc = "";
+        if (count == 4) {
+            disc = "恭喜你已顺利找到4件通关信物。不过，属于真正勇者的探险，还在继续......";
             isFinished = true;
-            showDialog(title, disc, img, "false");
-            // dialogFlag = false;
+            showDialog("none", "", disc);
             $dialog.on("tap", function() {
-
-                $(".lock-key").addClass("show");
-
+                if($(this).hasClass("finished")){
+                    //$(".lock-key").addClass("show");
+                    $(".swiper-container").addClass("step2");
+                    $dialogProgress.hide();
+                    myScroll.refresh();
+                    myScroll.scrollTo(-650,0);
+                }
+                
             });
+            
         }
     };
     var showDialog = function(dTitle, isKey, dDisc, dImg, dTips, index) {
@@ -83,35 +65,57 @@ $(function() {
         var $mask = $dialog.find(".dialog-mask");
         var $audioResult = $("#audioResult")[0];
         if (isKey == "false"){
+            $dialog.removeClass("finished");
             $dialogKey.removeClass("hide");
             $dialogKey.find("div").removeClass().addClass("discount-img discount-img_" + dImg);
-            $dialogDisc.html(dDisc).show();
+            $dialogDisc.removeClass("dialog-result").html(dDisc).show();
             $mask.addClass("show");
             $dialogTitle.removeClass().addClass("discount-text discount-text_" + dTitle);
             $dialogTips.removeClass("key-content");
-        } else {
+        } else if(isKey == "true"){
+            $dialog.removeClass("finished");
+            isKeyAppear = true;
             $dialogKey.addClass("hide");
             $dialogTitle.removeClass().addClass("key-text key-text_" + dTitle);
-            $dialogDisc.html("").hide();
+            $dialogDisc.removeClass("dialog-result").html("").hide();
+            $dialogTips.addClass("key-content");
+            setTimeout(function(){showResult();},2000);
+        }else{
+            $dialog.addClass("finished");
+            $dialogKey.addClass("hide");
+            $dialogTitle.removeClass().addClass("key-text key-text_" + dTitle);
+            $dialogDisc.addClass("dialog-result").html(dDisc).show();
             $dialogTips.addClass("key-content");
         }
 
         if (dTips == "") {
             switch (index) {
-                case 1:
-                    key1 == 1;
+                case "1":
+                    key1 = 1;
                     break;
-                case 2:
-                    key2 == 1;
+                case "2":
+                    key2 = 1;
                     break;
-                case 3:
-                    key3 == 1;
+                case "3":
+                    key3 = 1;
                     break;
-                case 4:
-                    key4 == 1;
+                case "4":
+                    key4 = 1;
                     break;
             }
-            setTimeout(function(){showResult();},2000);
+
+            if(isKeyAppear){
+                var keyTool = $dialogProgress.find(".J_tool").eq(0),
+                    keyImg = "<img src='./image/step1/popup/img/key0"+ index +".png' />";
+                setTimeout(function(){
+                    keyTool.html(keyImg);
+                },2000);
+                
+                keyTool.removeClass('J_tool');
+                $dialogProgress.show();
+            }
+
+            
             $audioResult.play();
             $("#key0" + index).attr("data-tips", "您已经拿到该线索！");
         }

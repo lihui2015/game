@@ -50,18 +50,19 @@ $(function() {
     };
     var resources = [ "./css/index.css", "./js/lib/touch.js" ];
 
-    var images = [ "./image/light/bg2_01.jpg", "./image/light/bg2_02.jpg",
-"./image/light/bg2_03.jpg", "./image/light/bg2_04.jpg",
-"./image/popup/img/01.jpg", "./image/popup/img/02.jpg",
-"./image/popup/img/03.jpg", "./image/popup/img/04.jpg",
-"./image/popup/img/05.jpg", "./image/popup/img/06.jpg",
-"./image/popup/img/07.jpg", "./image/popup/img/08.jpg",
-"./image/popup/text/discount/01.png", "./image/popup/text/discount/02.png",
-"./image/popup/text/discount/03.png", "./image/popup/text/discount/04.png",
-"./image/popup/text/discount/05.png", "./image/popup/text/discount/06.png",
-"./image/popup/text/discount/07.png", "./image/popup/text/discount/08.png",
-"./image/popup/text/key/01.png", "./image/popup/text/key/02.png",
-"./image/popup/text/key/03.png", "./image/popup/text/key/04.png",
+    var images = [ "./image/step1/light/bg2_01.jpg", "./image/step1/light/bg2_02.jpg",
+"./image/step1/light/bg2_03.jpg", "./image/step1/light/bg2_04.jpg","./image/step2/light/bg2_01.jpg", "./image/step2/light/bg2_02.jpg",
+"./image/step2/light/bg2_03.jpg", "./image/step2/light/bg2_04.jpg",
+"./image/step1/popup/img/01.jpg", "./image/step1/popup/img/02.jpg",
+"./image/step1/popup/img/03.jpg", "./image/step1/popup/img/04.jpg",
+"./image/step1/popup/img/05.jpg", "./image/step1/popup/img/06.jpg",
+"./image/step1/popup/img/07.jpg", "./image/step1/popup/img/08.jpg",
+"./image/step1/popup/text/discount/01.png", "./image/step1/popup/text/discount/02.png",
+"./image/step1/popup/text/discount/03.png", "./image/step1/popup/text/discount/04.png",
+"./image/step1/popup/text/discount/05.png", "./image/step1/popup/text/discount/06.png",
+"./image/step1/popup/text/discount/07.png", "./image/step1/popup/text/discount/08.png",
+"./image/step1/popup/text/key/01.png", "./image/step1/popup/text/key/02.png",
+"./image/step1/popup/text/key/03.png", "./image/step1/popup/text/key/04.png",
 "./img/loading/loading01.png", "./img/loading/loading02.png" ]; 
 
     resources = resources.concat(images);
@@ -73,7 +74,7 @@ $(function() {
             //   'transform': 'scale('+ percent/100 +', '+ percent/100 +')',
             // })
             setTimeout(function() {
-                $("#audioBg")[0].play();
+                //$("#audioBg")[0].play();
                 $("#jsBgBox").removeClass("dark");
                 if (count == total) {
                     var el = $("#loading");
