@@ -20,8 +20,15 @@ $(function() {
     };
     $(".item").on("tap", function() {
         var $this = $(this);
-        var type = $this.attr("data-type"), title = $this.attr("data-title"), isKey = $this.attr("data-iskey");
-        if (type != 2) {
+        var type = $this.attr("data-type"), title = $this.attr("data-title"), isKey = $this.attr("data-iskey"), sort = $this.attr("data-sort"), disc = $this.attr("data-disc");
+        if (sort == 2 && disc == "") {
+            $(this).addClass("checked");
+            if(isKey == "false"){
+                $(this).attr("data-disc","这就是一个破罐子！");
+                $("#audioBroken")[0].play();
+                return false;
+            }
+        } else if (sort == 1){
             $(this).addClass("after");
         }
         setTimeout(function() {
@@ -29,10 +36,8 @@ $(function() {
                 var  disc = $this.attr("data-disc"), img = $this.attr("data-img");
                 showDialog(title, isKey, disc, img);
             } else if (type == 3) {
-                
                 var Tips = $this.attr("data-tips"), index = $this.attr("data-index");
                 showDialog(title, isKey, '', '', Tips, index);
-                
             }
         }, 500);
     });
@@ -52,8 +57,6 @@ $(function() {
                     //$(".lock-key").addClass("show");
                     $(".swiper-container").addClass("step2");
                     $dialogProgress.hide();
-                    myScroll.refresh();
-                    myScroll.scrollTo(-650,0);
                 }
                 
             });
@@ -114,10 +117,8 @@ $(function() {
                 keyTool.removeClass('J_tool');
                 $dialogProgress.show();
             }
-
-            
             $audioResult.play();
-            $("#key0" + index).attr("data-tips", "您已经拿到该线索！");
+            $("#key0" + index).addClass("checked").attr("data-tips", "您已经拿到该线索！");
         }
         $dialog.on("tap", function() {
             $mask.removeClass("show");

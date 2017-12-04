@@ -24,7 +24,7 @@ body {
 #scroller {
     position: absolute;
     z-index: 1;
-    width: 18.805rem;
+    width: 18.7rem;
     height: 100%;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -88,7 +88,7 @@ body {
 }
 
 .swiper-wrapper .swiper-slide:nth-child(4) {
-    width:2.605rem !important;
+    width:2.5rem !important;
     background-image: url(../image/step1/light/bg2_04.jpg)
 }
 
@@ -115,7 +115,6 @@ body {
 }
 
 .swiper-container.step2 .swiper-wrapper .swiper-slide:nth-child(4) {
-    width:5.38rem !important;
     background-image: url(../image/step2/light/bg2_04.jpg);
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
@@ -270,104 +269,152 @@ body {
 }
 
 .animate-items .item:nth-child(1) {
-    left: 0.98rem;
-    top: 2.875rem;
-    width: 1.38rem;
-    height: 4.42rem;
-    background-image: url(../image/step1/animate/before/animate01.jpg);
+    left: 0.33rem;
+    top: 1.635rem;
+    width: 2.68rem;
+    height: 5.51rem;
+    background-image: url(../image/step1/animate/before/animate01.png);
 }
 
 .animate-items .item:nth-child(2) {
-    left: 2.56rem;
-    top: 2.66rem;
-    width: 1.3rem;
-    height: 1.705rem;
+    left: 2.48rem;
+    top: 2.52rem;
+    width: 1.465rem;
+    height: 2.11rem;
     background-image: url(../image/step1/animate/before/animate02.jpg);
     z-index: 20
 }
 
 .animate-items .item:nth-child(3) {
-    left: 3.78rem;
-    top: 6.42rem;
-    width: 1.06rem;
-    height: 1.005rem;
-    background-image: url(../image/step1/animate/before/animate03.jpg)
+    left: 11.84rem;
+    top: 5.995rem;
+    width: 0.78rem;
+    height: 0.77rem;
+    background-image: url(../image/step1/animate/before/animate03.png);
+    z-index: 2;
 }
 
 .animate-items .item:nth-child(4) {
-    left: 6.175rem;
-    top: 1.895rem;
-    width: .305rem;
-    height: 1.14rem;
+    left: 5.91rem;
+    top: 2.34rem;
+    width: .63rem;
+    height: 0.905rem;
     background-image: url(../image/step1/animate/before/animate04.jpg)
 }
 
 .animate-items .item:nth-child(5) {
-    left: 6.295rem;
+    left: 6.265rem;
     top: 4.565rem;
-    width: .735rem;
-    height: .86rem;
-    background-image: url(../image/step1/animate/before/animate05.jpg)
+    width: .73rem;
+    height: .815rem;
+    background-image: url(../image/step1/animate/before/animate05.png)
 }
 
 .animate-items .item:nth-child(6) {
-    width: 0.545rem;
-    height: 0.62rem;
-    left: 7.645rem;
-    top: 5.1rem;
-    background-image: url(../image/step1/animate/before/animate06.jpg)
+    width: 0.475rem;
+    height: 0.595rem;
+    left: 7.6rem;
+    top: 5.12rem;
+    background-image: url(../image/step1/animate/before/animate06.png)
 }
 
 .animate-items .item:nth-child(7) {
-    left: 7.8rem;
+    left: 7.79rem;
     top: 6.56rem;
-    width: .52rem;
-    height: .38rem;
-    background-image: url(../image/step1/animate/before/animate07.jpg)
+    width: .45rem;
+    height: .34rem;
+    background-image: url(../image/step1/animate/before/animate07.png)
 }
 
 .animate-items .item:nth-child(8) {
-    left: 7.38rem;
-    top: 7.15rem;
+    left: 7.325rem;
+    top: 7.105rem;
     width: 1.74rem;
-    height: 0.54rem;
-    background-image: url(../image/step1/animate/before/animate08.jpg)
+    height: 0.57rem;
+    background-image: url(../image/step1/animate/before/animate08.png)
 }
 
 .animate-items .item:nth-child(9) {
-    left: 11.42rem;
-    top: 5.95rem;
-    width: .98rem;
-    height: 1.2rem;
-    background-image: url(../image/step1/animate/before/animate09.jpg)
+    left: 12.32rem;
+    top: 6.875rem;
+    width: 1.05rem;
+    height: 0.69rem;
+    background-image: url(../image/step1/animate/before/animate09.png)
 }
 
 .animate-items .item:nth-child(10) {
-    left: 12.66rem;
-    top: 3.95rem;
-    width: 0.75rem;
-    height: 2.47rem;
-    background-image: url(../image/step1/animate/before/animate10.jpg)
+    left: 12.155rem;
+    top: 3.715rem;
+    width: 1.325rem;
+    height: 2.77rem;
+    background-image: url(../image/step1/animate/before/animate10.png)
 }
 
 .animate-items .item:nth-child(11) {
-    left: 15.13rem;
-    top: 2.01rem;
-    width: 0.53rem;
-    height: 0.5rem;
+    left: 14.63rem;
+    top: 1.57rem;
+    width: 1.285rem;
+    height: 1.275rem;
     background-image: url(../image/step1/animate/before/animate11.jpg)
 }
 
 .animate-items .item:nth-child(12) {
-    left: 16.15rem;
-    top: 6.24rem;
-    width: 1.86rem;
-    height: 1.6rem;
-    background-image: url(../image/step1/animate/before/animate12.jpg)
+    left: 15.965rem;
+    top: 5.47rem;
+    width: 2.39rem;
+    height: 2.65rem;
+    background-image: url(../image/step1/animate/before/animate12.png)
 }
 
-.animate-items .item.after:nth-child(1),.animate-items .item.after:nth-child(2),.animate-items .item.after:nth-child(3),.animate-items .item.after:nth-child(4),.animate-items .item.after:nth-child(5),.animate-items .item.after:nth-child(6),.animate-items .item.after:nth-child(7),.animate-items .item.after:nth-child(8),.animate-items .item.after:nth-child(9),.animate-items .item.after:nth-child(10),.animate-items .item.after:nth-child(11),.animate-items .item.after:nth-child(12){
+.animate-items .item:nth-child(13) {
+    left: 13.555rem;
+    top: 6.03rem;
+    width: 0.94rem;
+    height: 0.925rem;
+    background-image: url(../image/step1/animate/before/animate13.png);
+    z-index: 2;
+}
+
+.animate-items .item:nth-child(14) {
+    left: 13.155rem;
+    top: 5.39rem;
+    width: 0.785rem;
+    height: 1.315rem;
+    background-image: url(../image/step1/animate/before/animate14.png)
+}
+
+.animate-items .item:nth-child(15) {
+    left: 13.95rem;
+    top: 4.58rem;
+    width: 1.09rem;
+    height: 1.49rem;
+    background-image: url(../image/step1/animate/before/animate15.png)
+}
+
+.animate-items .item.after:nth-child(1),.animate-items .item.after:nth-child(3),.animate-items .item.after:nth-child(5),.animate-items .item.after:nth-child(6),.animate-items .item.after:nth-child(7),.animate-items .item.after:nth-child(8),.animate-items .item.after:nth-child(9),.animate-items .item.after:nth-child(10),.animate-items .item.after:nth-child(12){
     transform:scale(1.1);
+}
+.animate-items .item.checked:nth-child(2){
+    background-image: url(../image/step1/animate/after/animate02.jpg);
+}
+.animate-items .item.checked:nth-child(4){
+    left: 5.16rem;
+    top: 0.405rem;
+    width: 2.59rem;
+    height: 2.895rem;
+    background-image: url(../image/step1/animate/after/animate04.jpg)
+}
+.animate-items .item.checked:nth-child(11){
+    background-image: url(../image/step1/animate/after/animate11.jpg)
+}
+.animate-items .item.checked:nth-child(13){
+    background-image: url(../image/step1/animate/after/animate13.png)
+}
+.animate-items .item.checked:nth-child(14){
+    background-image: url(../image/step1/animate/after/animate14.png)
+}
+.animate-items .item.checked:nth-child(15){
+    background-image: url(../image/step1/animate/after/animate15.png)
 }
 .swiper-container.step2 .swiper-wrapper .animate-items{
     display: none;
@@ -576,7 +623,7 @@ body {
 
 .dialog-tips p {
     color: #ffba00;
-    margin: 5.575rem 0 0 0;
+    margin: 4.575rem 0 0 0;
 
 }
 .dialog-tips p.dialog-result{
@@ -614,7 +661,7 @@ body {
 }
 
 .dialog-progress .tool img{
-    width:80%;
+    width:100%;
 }
 
 .dialog-key {
@@ -634,7 +681,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 2.5rem
+    margin-top: 1.5rem
 }
 
 .dialog-key .discount-img:after {
@@ -739,12 +786,12 @@ body {
 }
 
 .dialog-tips .discount-text.discount-text_04:after {
-    width: 5.06rem;
+    width: 4.08rem;
     height: 0.6rem;
     background: url(../image/step1/popup/text/discount/04.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin-left: -2.53rem;
+    margin-left: -2.04rem;
 }
 
 .dialog-tips .discount-text.discount-text_05:after {
@@ -828,7 +875,7 @@ body {
     position: absolute;
     left: 50%;
     top: 0%;
-    margin: 7.485rem 0 0 -.915rem;
+    margin: 6.485rem 0 0 -.915rem;
     width: 1.83rem;
     height: .59rem;
     background: url(../image/step1/btn_check.png) no-repeat;
