@@ -1,43 +1,27 @@
-@import"lib/lib-mixins-mobile.css";
-@import"lib/lib-reset-mobile.css";
-@-webkit-keyframes loading-ani {
+@-webkit-keyframes fadeOut {
     0% {
         opacity: 1;
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        background-color: #000
     }
-    50% {
+    40% {
         opacity: 1;
-        background-color: #fff
+        
     }
     100% {
         opacity: 0;
-        -webkit-transform: scale(2);
-        transform: scale(2);
-        background-color: #fff
     }
 }
 
-@keyframes loading-ani {
+@keyframes fadeOut {
     0% {
         opacity: 1;
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        background-color: #000
     }
-    50% {
+    40% {
         opacity: 1;
-        background-color: #fff
     }
     100% {
         opacity: 0;
-        -webkit-transform: scale(2);
-        transform: scale(2);
-        background-color: #fff
     }
 }
-
 .loading {
     position: absolute;
     top: 0;
@@ -47,119 +31,65 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #000;
+    background-color: #120000;
     z-index: 100;
     color: #fff
 }
 
+.loading.complete {
+    -webkit-animation: fadeOut 1s both;
+    animation: fadeOut 1s both
+}
+
 .loading-animate .animate-item {
     position: absolute;
-    left: .16875rem;
-    width: 3.636rem;
-    height: 5.923rem;
-    -webkit-transform: scale(.2);
-    transform: scale(.2);
-    -webkit-transform-origin: 2.53rem 2.953rem;
-    transform-origin: 2.53rem 2.953rem;
-    background: url(../img/loading/loading01_s.png) no-repeat;
-    -webkit-background-size: 100% 100%;
-    background-size: 100%;
-    -webkit-animation: run2 350ms steps(5) infinite 0s;
-    animation: run2 350ms steps(5) infinite 0s
+    left: 50%;
+    top: 50%;
+    width: 3.25rem;
+    height: 0.2rem;
+    margin: -0.1rem 0 0 -1.625rem;
+    border: 0.01rem #ffba30 solid;
+    border-radius:.2rem;
+    box-sizing: border-box;
 }
 
-.loading-animate .animate-item.loaded {
-    background: url(../img/loading/loading01.png) no-repeat;
-    -webkit-background-size: 100% 100%;
-    background-size: 100%;
-    -webkit-animation: run 350ms steps(5) infinite 0s;
-    animation: run 350ms steps(5) infinite 0s;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: -webkit-transform 1s linear;
-    transition: transform 1s linear
-}
-
-.loading.complete {
-    -webkit-animation: loading-ani 1s both;
-    animation: loading-ani 1s both
-}
-
-.loading .tips {
-    text-align: center;
-    font-size: .23625rem;
+.loading-animate .animate-item .before,.loading-animate .animate-item .after{
     position: absolute;
-    left: 0;
-    width: 100%;
-    top: .5rem;
-    display: none
+    transition: width .2s;
+    -webkit-transition: width .2s;
 }
 
-.loading .tips.show {
-    display: block;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: .5s;
-    animation-duration: .5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both
+.loading-animate .animate-item .before{
+    height: 100%;
+    width: 0;
+    border: 0.035rem #0d27a2 solid;
+    border-radius: .2rem;
+    background:linear-gradient(#39b6ff, #0055ff);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0.25rem rgba(0,173,255,0.36);
 }
 
-.loading .text {
-    position: absolute;
+.loading-animate .animate-item .after{
+    width: 0.69rem;
+    height: 0.995rem;
     top: 50%;
     left: 0;
-    width: 100%;
-    text-align: center;
-    margin-top: 1.5rem;
-    font-size: .23625rem
-}
-
-.loading .text p {
-    display: none;
-    margin: 0;
-    line-height: .3375rem
-}
-
-.loading .text p:nth-child(2) {
-    margin-bottom: .3375rem
-}
-
-.loading .text.show p:nth-child(1) {
-    display: block;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear
-}
-
-.loading .text.show p:nth-child(2) {
-    display: block;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-delay: 1.5s;
-    animation-delay: 1.5s;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear
+    margin: -0.4975rem 0 0 -0.345rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(../image/loading/pointer.png);
 }
 
 .loading .text-percent {
     position: absolute;
     top: 50%;
     left: 0;
-    margin-top: 1.18125rem;
+    margin-top: 0.8rem;
     width: 100%;
     text-align: center;
     font-size: .23625rem;
-    line-height: .3rem
+    line-height: .3rem;
+    color:#ffba30;
 }
 
 @-webkit-keyframes run {

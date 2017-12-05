@@ -141,8 +141,7 @@ $(function() {
         "./image/step2/popup/text/05.png",
         "./image/step2/popup/text/06.png",
         "./image/step2/popup/text/07.png",
-        "./image/loading/loading01.png", 
-        "./image/loading/loading02.png" 
+        "./image/loading/pointer.png"
     ]; 
 
     resources = resources.concat(images);
@@ -150,29 +149,21 @@ $(function() {
         onload: function(load) {
             var count = load.count, total = load.total, percent = Math.ceil(100 * count / total);
             $("#percent").html(percent + "%");
-            $('#loading .animate-item').css({
-              'transform': 'scale('+ percent/100 +', '+ percent/100 +')',
+            $('#loading .animate-item .before').css({
+              'width': percent + '%'
+            })
+            $('#loading .animate-item .after').css({
+              'left': percent + '%'
             })
             setTimeout(function() {
-                //$("#audioBg")[0].play();
+                $("#audioBg")[0].play();
                 $("#jsBgBox").removeClass("dark");
                 if (count == total) {
                     var el = $("#loading");
-                    $("#percent").hide();
-                    $("#loading .animate-item").addClass("loaded");
-                    //$(el).remove();
-                    // setTimeout(function() {
-                    //     el.find(".text").addClass("show");
-                    //     setTimeout(function() {
-                    //         el.find(".tips").addClass("show");
-                    //         el.find(".animate-item").on("tap", function() {
-                    //             $(el).addClass("complete");
-                    //             setTimeout(function() {
-                    //                 $(el).remove();
-                    //             }, 1e3);
-                    //         });
-                    //     }, 2500);
-                    // }, 2500);
+                    $(el).addClass("complete");
+                    setTimeout(function() {
+                        $(el).remove();
+                    }, 1000);
                 }
             }, 500);
         }

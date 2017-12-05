@@ -143,6 +143,8 @@ $(function() {
             "最后一张碎纸片果然藏在这里面！"
         ];
 
+        $(".dialog-progress").removeClass("hide");
+
         $(".cell").on("tap", function(e) {
             var $this = $(this);
             var type = $this.attr("data-type"), title = $this.attr("data-title"), disc = $this.attr("data-disc"), isKey = $this.attr("data-iskey"), img = $this.attr("data-img");
@@ -230,8 +232,6 @@ $(function() {
             });
         }
     }
-    
-    scene2();
 
     $(".page-tips").on("tap", function() {
         $(this).remove();
@@ -271,8 +271,14 @@ $(function() {
         });
     };
     openDoor();
-    $("#jsTips").on("tap", function() {
-        showDialog($(this).attr("data-title"), $(this).attr("data-disc"));
+    $("#jsMusic").on("tap", function() {
+        var music = $(this);
+        if(music.hasClass("open")){
+            $("#audioBg")[0].play();
+        }else{
+            $("#audioBg")[0].pause();
+        }
+        music.toggleClass("open");
     });
     $("#link").on("tap", function() {
         window.location.href = "http://games.qq.com/a/20160314/031744.htm";

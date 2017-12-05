@@ -59,7 +59,6 @@
                     <div id="clue06" class="cell" data-iskey="true" data-type="2" data-title="06" data-disc="" data-tips="tips" data-img="06" data-ischecked="false">铁链</div>
                     <div class="cell" data-iskey="false" data-type="1" data-title="04" data-disc="" data-img="">猫</div>
                 </div>
-                <div class="noanimate-items"></div>
                 <div class="window">
                     <div class="bg starfield" id="starfield0">
                         <div></div>
@@ -79,7 +78,7 @@
             </div>
         </div>
     </div>
-    <i class="icon-tips" id="jsTips" data-title="找到开关" data-disc="“说不定能有意外的发现”"></i>
+    <i class="icon-music" id="jsMusic"></i>
     <div class="dialog" id="dialogBox">
         <div class="dialog-key">
             <div class="key-img"></div>
@@ -88,7 +87,7 @@
             <p></p>
             <div></div>
         </div>
-        <div class="dialog-progress">已获得线索：<span>0</span>／6</div>
+        <div class="dialog-progress hide">已获得线索：<span>0</span>／6</div>
         <div class="dialog-mask"></div>
     </div>
     <div class="dialog-collect">
@@ -124,11 +123,9 @@
     </div>
     <div class="loading" id="loading">
         <div class="loading-animate">
-            <div class="tips">点击把手开门</div>
-            <div class="animate-item"></div>
-            <div class="text">
-                <p>如果打开这扇门</p>
-                <p>就是你当年的那个房间...</p>
+            <div class="animate-item">
+                <span class="before"></span>
+                <span class="after"></span>
             </div>
             <div class="text-percent" id="percent">0%</div>
         </div>

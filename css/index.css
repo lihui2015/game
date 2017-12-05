@@ -700,16 +700,19 @@ body {
     position: absolute
 }*/
 
-.icon-tips {
+.icon-music {
     position: absolute;
     z-index: 97;
     right: .3375rem;
     top: .3375rem;
-    width: .3375rem;
-    height: .3375rem;
-    background: url(../img/icon_tips.png) no-repeat;
+    width: .505rem;
+    height: .5rem;
+    background: url(../image/music-play.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%
+}
+.icon-music.open{
+    background-image:url(../image/music-pause.png);
 }
 
 .dialog {
