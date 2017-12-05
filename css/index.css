@@ -771,11 +771,11 @@ body {
 
 .dialog-progress {
     position: absolute;
-    bottom: .2rem;
+    bottom: .4rem;
     width: 100%;
     text-align: center;
     color: #fff;
-    font-size: .12rem;
+    font-size: .24rem;
     font-weight: 700
 }
 
