@@ -127,6 +127,7 @@ $(function() {
     function scene2(){
         var key1 = 0, key2 = 0, key3 = 0, key4 = 0, key5 = 0, key6 = 0;
         var isFinished = false;
+        var count = 0;
         var npcText = [
             "<div class='npcText'>你终于来了，不过要找的人不是我！德基圣诞消费，积分5倍起蹭蹭往上涨……一不小心还能兑换到<span class='yellow'>iPhone X！</span></div>",
             "<div class='npcText'>你找错了！不过只有美丽的人才能见到我。悄悄给你透露个消息：圣诞在德基买满3999，<span class='yellow'>超高价值大奖</span>抽到“人神共愤”！</div>",
@@ -143,8 +144,6 @@ $(function() {
         ];
 
         $(".cell").on("tap", function(e) {
-            e.stopPropagation();
-            console.log("DD")
             var $this = $(this);
             var type = $this.attr("data-type"), title = $this.attr("data-title"), disc = $this.attr("data-disc"), isKey = $this.attr("data-iskey"), img = $this.attr("data-img");
 
@@ -154,22 +153,45 @@ $(function() {
                 if (type == 1) {
                     showDialog(isKey, title);
                 } else if(type == 2) {
-                    var Tips = $this.attr("data-tips"), isChecked = $this.attr("data-isChecked");
+                    var Tips = $this.attr("data-tips"), isChecked = $this.attr("data-ischecked");
                     showDialog(isKey, title, Tips, isChecked)
                 }
             },500)
         });
 
+        function showResult(){
+            var isKey = "true",
+                title = "07",
+                Tips = "tips",
+                isChecked = "true";
+            if(count == 6){
+                showDialog(isKey, title, Tips, isChecked);
+            }
+            
+            $dialog.off().on("tap", function() {
+                $(this).removeClass("show");
+                if(count == 7){
+                    $(".lock-key").addClass("show");
+                }
+                
+            });
+        }
+
         function showDialog(isKey, dTitle, dTips, isChecked){
             $dialog.addClass("show");
+            var $progress = $(".dialog-progress span");
             var $audioResult = $("#audioResult")[0];
-
-            console.log("D")
+            var index = Number(dTitle);
+            var dDisc = keyWords[index - 1];
 
             if(isKey == "true"){
-                
-            }else if(isKey == "false"){
+                $(".npcText").remove();
+                $dialogTips.removeClass("hide");
 
+            }else if(isKey == "false"){
+                $dialogTips.addClass("hide");
+                $dialogKey.removeClass("hide");
+                $dialogKey.find("div").removeClass().addClass("npc-img npc-img_" + dTitle).html("").append($(npcText[index - 1]));
             }
             if(isChecked == "false"){
                 $dialogKey.addClass("hide");
@@ -178,22 +200,33 @@ $(function() {
                 $dialogTips.addClass("key-content");
                 $("#clue" + dTitle).attr("data-isChecked","true");
             }else if(isChecked == "true"){
-                var index = Number(dTitle),
-                    dDisc = keyWords[index - 1];
-
                 $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
-                $dialogDisc.removeClass("dialog-result").html(dDisc).show();
+                $dialogTitle.removeClass();
                 $dialogTips.removeClass("key-content");
+                $("#clue" + dTitle).attr("data-ischecked","false").attr("data-tips","您已经拿到该线索！");
+                if(dTips == "tips"){
+                    var keWord = keyWords[count];
+                    count ++;
+                    $dialogDisc.removeClass("dialog-result").html(keWord).show();
+                } else if(dTips == "您已经拿到该线索！"){
+                    $dialogDisc.removeClass("dialog-result").html(dTips).show();
+                }
+
+                setTimeout(function(){
+                    showResult()
+                },2000);
             }
 
-            if(dTips == "tips"){
+            var sum = count > 6 ? 6 : count;
+            $progress.html(sum);
 
-            }
-
-            $dialog.on("tap", function() {
+            $dialog.off().on("tap", function() {
                 $(this).removeClass("show");
-                $(".cell").removeClass("after");
+                if(isChecked != "false"){
+                    $(".cell").removeClass("after");
+                }
+                
             });
         }
     }

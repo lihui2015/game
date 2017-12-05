@@ -50,29 +50,109 @@ $(function() {
     };
     var resources = [ "./css/index.css", "./js/lib/touch.js" ];
 
-    var images = [ "./image/step1/light/bg2_01.jpg", "./image/step1/light/bg2_02.jpg",
-"./image/step1/light/bg2_03.jpg", "./image/step1/light/bg2_04.jpg","./image/step2/light/bg2_01.jpg", "./image/step2/light/bg2_02.jpg",
-"./image/step2/light/bg2_03.jpg", "./image/step2/light/bg2_04.jpg",
-"./image/step1/popup/img/01.jpg", "./image/step1/popup/img/02.jpg",
-"./image/step1/popup/img/03.jpg", "./image/step1/popup/img/04.jpg",
-"./image/step1/popup/img/05.jpg", "./image/step1/popup/img/06.jpg",
-"./image/step1/popup/img/07.jpg", "./image/step1/popup/img/08.jpg",
-"./image/step1/popup/text/discount/01.png", "./image/step1/popup/text/discount/02.png",
-"./image/step1/popup/text/discount/03.png", "./image/step1/popup/text/discount/04.png",
-"./image/step1/popup/text/discount/05.png", "./image/step1/popup/text/discount/06.png",
-"./image/step1/popup/text/discount/07.png", "./image/step1/popup/text/discount/08.png",
-"./image/step1/popup/text/key/01.png", "./image/step1/popup/text/key/02.png",
-"./image/step1/popup/text/key/03.png", "./image/step1/popup/text/key/04.png",
-"./img/loading/loading01.png", "./img/loading/loading02.png" ]; 
+    var images = [
+        "./image/swipe_tips.png", 
+        "./image/step1/btn_check.png", 
+        "./image/step1/light/bg2_01.jpg", 
+        "./image/step1/light/bg2_02.jpg",
+        "./image/step1/light/bg2_03.jpg", 
+        "./image/step1/light/bg2_04.jpg",
+        "./image/step1/animate/before/animate01.png",
+        "./image/step1/animate/before/animate02.jpg",
+        "./image/step1/animate/before/animate03.png",
+        "./image/step1/animate/before/animate04.jpg",
+        "./image/step1/animate/before/animate05.png",
+        "./image/step1/animate/before/animate06.png",
+        "./image/step1/animate/before/animate07.png",
+        "./image/step1/animate/before/animate08.png",
+        "./image/step1/animate/before/animate09.png",
+        "./image/step1/animate/before/animate10.png",
+        "./image/step1/animate/before/animate11.jpg",
+        "./image/step1/animate/before/animate12.png",
+        "./image/step1/animate/before/animate13.png",
+        "./image/step1/animate/before/animate14.png",
+        "./image/step1/animate/before/animate15.png",
+        "./image/step1/animate/after/animate02.jpg",
+        "./image/step1/animate/after/animate04.jpg",
+        "./image/step1/animate/after/animate11.jpg",
+        "./image/step1/animate/after/animate13.png",
+        "./image/step1/animate/after/animate14.png",
+        "./image/step1/animate/after/animate15.png",
+        "./image/step1/popup/progress-bg.jpg",
+        "./image/step1/popup/img/01.jpg", 
+        "./image/step1/popup/img/02.jpg",
+        "./image/step1/popup/img/03.jpg", 
+        "./image/step1/popup/img/04.jpg",
+        "./image/step1/popup/img/05.jpg", 
+        "./image/step1/popup/img/06.jpg",
+        "./image/step1/popup/img/07.jpg", 
+        "./image/step1/popup/img/08.jpg",
+        "./image/step1/popup/img/key01.png",
+        "./image/step1/popup/img/key02.png",
+        "./image/step1/popup/img/key03.png",
+        "./image/step1/popup/img/key04.png",
+        "./image/step1/popup/text/discount/01.png", 
+        "./image/step1/popup/text/discount/02.png",
+        "./image/step1/popup/text/discount/03.png", 
+        "./image/step1/popup/text/discount/04.png",
+        "./image/step1/popup/text/discount/05.png", 
+        "./image/step1/popup/text/discount/06.png",
+        "./image/step1/popup/text/discount/07.png", 
+        "./image/step1/popup/text/discount/08.png",
+        "./image/step1/popup/text/key/01.png", 
+        "./image/step1/popup/text/key/02.png",
+        "./image/step1/popup/text/key/03.png", 
+        "./image/step1/popup/text/key/04.png",
+
+        "./image/step2/light/bg2_01.jpg", 
+        "./image/step2/light/bg2_02.jpg",
+        "./image/step2/light/bg2_03.jpg", 
+        "./image/step2/light/bg2_04.jpg",
+        "./image/step2/animate/before/01.jpg",
+        "./image/step2/animate/before/02.jpg",
+        "./image/step2/animate/before/03.png",
+        "./image/step2/animate/before/08.jpg",
+        "./image/step2/animate/before/09.jpg",
+        "./image/step2/animate/before/10.jpg",
+        "./image/step2/animate/after/01.jpg",
+        "./image/step2/animate/after/02.jpg",
+        "./image/step2/animate/after/03.png",
+        "./image/step2/animate/after/04.jpg",
+        "./image/step2/animate/after/05.jpg",
+        "./image/step2/animate/after/08.jpg",
+        "./image/step2/animate/after/09.jpg",
+        "./image/step2/animate/after/10.jpg",
+        "./image/step2/popup/text-bg.jpg",
+        "./image/step2/popup/img/01.png",
+        "./image/step2/popup/img/02.png",
+        "./image/step2/popup/img/03.png",
+        "./image/step2/popup/img/04.png",
+        "./image/step2/popup/img/05.png",
+        "./image/step2/popup/img/06.png",
+        "./image/step2/popup/img/07.png",
+        "./image/step2/popup/img/npc01.png",
+        "./image/step2/popup/img/npc02.png",
+        "./image/step2/popup/img/npc03.png",
+        "./image/step2/popup/img/npc04.png",
+        "./image/step2/popup/text/01.png",
+        "./image/step2/popup/text/02.png",
+        "./image/step2/popup/text/03.png",
+        "./image/step2/popup/text/04.png",
+        "./image/step2/popup/text/05.png",
+        "./image/step2/popup/text/06.png",
+        "./image/step2/popup/text/07.png",
+        "./image/loading/loading01.png", 
+        "./image/loading/loading02.png" 
+    ]; 
 
     resources = resources.concat(images);
     new PreLoad(resources, {
         onload: function(load) {
             var count = load.count, total = load.total, percent = Math.ceil(100 * count / total);
             $("#percent").html(percent + "%");
-            // $('#loading .animate-item').css({
-            //   'transform': 'scale('+ percent/100 +', '+ percent/100 +')',
-            // })
+            $('#loading .animate-item').css({
+              'transform': 'scale('+ percent/100 +', '+ percent/100 +')',
+            })
             setTimeout(function() {
                 //$("#audioBg")[0].play();
                 $("#jsBgBox").removeClass("dark");
@@ -80,7 +160,7 @@ $(function() {
                     var el = $("#loading");
                     $("#percent").hide();
                     $("#loading .animate-item").addClass("loaded");
-                    $(el).remove();
+                    //$(el).remove();
                     // setTimeout(function() {
                     //     el.find(".text").addClass("show");
                     //     setTimeout(function() {

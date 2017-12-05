@@ -1067,6 +1067,124 @@ body {
     margin: -.795rem 0 0 -1.52rem
 }
 
+.dialog-key .snippet-img {
+    display: block;
+    width: 100%;
+    height: 2.775rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 1.5rem
+}
+
+.dialog-key .snippet-img:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    background: none;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    width: 4.095rem;
+    height: 2.775rem;
+    margin: 0 0 0 -2.0475rem;
+}
+
+.dialog-key .snippet-img.snippet-img_01:after {
+    background-image: url(../image/step2/popup/img/01.png);
+}
+
+.dialog-key .snippet-img.snippet-img_02:after {
+    background-image: url(../image/step2/popup/img/02.png);
+}
+
+.dialog-key .snippet-img.snippet-img_03:after {
+    background-image: url(../image/step2/popup/img/03.png);
+}
+
+.dialog-key .snippet-img.snippet-img_04:after {
+    background-image: url(../image/step2/popup/img/04.png);
+}
+
+.dialog-key .snippet-img.snippet-img_05:after {
+    background-image: url(../image/step2/popup/img/05.png);
+}
+
+.dialog-key .snippet-img.snippet-img_06:after {
+    background-image: url(../image/step2/popup/img/06.png);
+}
+
+.dialog-key .snippet-img.snippet-img_07:after {
+    background-image: url(../image/step2/popup/img/07.png);
+}
+
+.dialog-key .npc-img {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 1.5rem
+}
+.dialog-key .npc-img:before,.dialog-key .npc-img:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    background: none;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+}
+
+.dialog-key .npc-img:before{
+    width: 4.095rem;
+    height: 2.775rem;
+    margin: 0 0 0 -2.0475rem;
+    background-image: url(../image/step2/popup/text-bg.jpg);
+}
+
+.dialog-key .npc-img:after {
+    z-index: 2;
+}
+
+.dialog-key .npc-img.npc-img_01:after {
+    background-image: url(../image/step2/popup/img/npc01.png);
+    width: 1.515rem;
+    height: 3.465rem;
+}
+
+.dialog-key .npc-img.npc-img_02:after {
+    background-image: url(../image/step2/popup/img/npc02.png);
+    width: 1.515rem;
+    height: 3.465rem;
+}
+
+.dialog-key .npc-img.npc-img_03:after {
+    background-image: url(../image/step2/popup/img/npc03.png);
+    width: 1.515rem;
+    height: 3.465rem;
+}
+
+.dialog-key .npc-img.npc-img_04:after {
+    background-image: url(../image/step2/popup/img/npc04.png);
+    width: 1.515rem;
+    height: 3.465rem;
+}
+
+.npcText{
+    font-size: .24rem;
+    line-height: .3rem;
+    color:#ffffff;
+    position: absolute;
+    z-index: 3;
+}
+
+.npcText .yellow{
+    color: #ffba00;
+}
+
 .dialog-key.hide {
     display: none
 }
