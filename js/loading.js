@@ -80,18 +80,19 @@ $(function() {
                     var el = $("#loading");
                     $("#percent").hide();
                     $("#loading .animate-item").addClass("loaded");
-                    setTimeout(function() {
-                        el.find(".text").addClass("show");
-                        setTimeout(function() {
-                            el.find(".tips").addClass("show");
-                            el.find(".animate-item").on("tap", function() {
-                                $(el).addClass("complete");
-                                setTimeout(function() {
-                                    $(el).remove();
-                                }, 1e3);
-                            });
-                        }, 2500);
-                    }, 2500);
+                    $(el).remove();
+                    // setTimeout(function() {
+                    //     el.find(".text").addClass("show");
+                    //     setTimeout(function() {
+                    //         el.find(".tips").addClass("show");
+                    //         el.find(".animate-item").on("tap", function() {
+                    //             $(el).addClass("complete");
+                    //             setTimeout(function() {
+                    //                 $(el).remove();
+                    //             }, 1e3);
+                    //         });
+                    //     }, 2500);
+                    // }, 2500);
                 }
             }, 500);
         }

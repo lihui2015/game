@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="gbk">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
     <title>你玩过ROOM吗？</title>
@@ -22,7 +22,7 @@
 </head>
 <body onload="loaded()">
 <div id="wrapper">
-    <div class="swiper-container" id="scroller">
+    <div class="swiper-container step2" id="scroller">
         <div class="swiper-wrapper" id="jsBgBox">
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
@@ -46,6 +46,18 @@
                     <div class="item" data-iskey="false" data-type="2" data-title="none" data-disc="" data-img="none" data-sort="2">陶罐1</div>
                     <div class="item" data-iskey="false" data-type="2" data-title="none" data-disc="" data-img="none" data-sort="2">陶罐2</div>
                     <div class="item" data-iskey="false" data-type="2" data-title="none" data-disc="" data-img="none" data-sort="2">陶罐3</div>
+                </div>
+                <div class="step2-animate-items">
+                    <div id="clue01" class="cell" data-iskey="true" data-type="2" data-title="01" data-disc="" data-tips="tips" data-img="01" data-isChecked="false">左边柜子</div>
+                    <div id="clue02" class="cell" data-iskey="true" data-type="2" data-title="02" data-disc="" data-tips="tips" data-img="02" data-isChecked="false">左边箱子</div>
+                    <div id="clue03" class="cell" data-iskey="true" data-type="2" data-title="03" data-disc="" data-tips="tips" data-img="03" data-isChecked="false">地上开关</div>
+                    <div class="cell" data-iskey="false" data-type="1" data-title="1" data-disc="" data-img="">木乃伊</div>
+                    <div class="cell" data-iskey="false" data-type="1" data-title="2" data-disc="" data-img="">宝石</div>
+                    <div class="cell" data-iskey="false" data-type="1" data-title="3" data-disc="" data-img="">权杖</div>
+                    <div id="clue04" class="cell" data-iskey="true" data-type="2" data-title="04" data-disc="" data-tips="tips" data-img="04" data-isChecked="false">发光地毯</div>
+                    <div id="clue05" class="cell" data-iskey="true" data-type="2" data-title="05" data-disc="" data-tips="tips" data-img="05" data-isChecked="false">陶罐堆</div>
+                    <div id="clue06" class="cell" data-iskey="true" data-type="2" data-title="06" data-disc="" data-tips="tips" data-img="06" data-isChecked="false">铁链</div>
+                    <div class="cell" data-iskey="false" data-type="1" data-title="4" data-disc="" data-img="">猫</div>
                 </div>
                 <div class="noanimate-items"></div>
                 <div class="window">
@@ -76,9 +88,10 @@
             <p></p>
             <div></div>
         </div>
+        <div class="dialog-progress hide">已获得线索：<span>0</span>／4</div>
         <div class="dialog-mask"></div>
     </div>
-    <div class="dialog-progress">
+    <div class="dialog-collect">
         <div class="tool-wrap">
             <div class="tool J_tool"></div>
             <div class="tool J_tool"></div>

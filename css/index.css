@@ -80,53 +80,49 @@ body {
 }
 
 .swiper-wrapper .swiper-slide:nth-child(2) {
-    background-image: url(../image/step1/light/bg2_02.jpg)
+    background-image: url(../image/step1/light/bg2_02.jpg);
 }
 
 .swiper-wrapper .swiper-slide:nth-child(3) {
-    background-image: url(../image/step1/light/bg2_03.jpg)
+    background-image: url(../image/step1/light/bg2_03.jpg);
 }
 
 .swiper-wrapper .swiper-slide:nth-child(4) {
     width:2.5rem !important;
-    background-image: url(../image/step1/light/bg2_04.jpg)
+    background-image: url(../image/step1/light/bg2_04.jpg);
 }
 
 /*.swiper-wrapper .swiper-slide:nth-child(5) {
     background-image: url(../image/step1/light/bg2_05.jpg)
 }*/
+.swiper-container.step2 .swiper-wrapper{
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
 
 .swiper-container.step2 .swiper-wrapper .swiper-slide:nth-child(1) {
     background-image: url(../image/step2/light/bg2_01.jpg);
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
 }
 
 .swiper-container.step2 .swiper-wrapper .swiper-slide:nth-child(2) {
     background-image: url(../image/step2/light/bg2_02.jpg);
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
 }
 
 .swiper-container.step2 .swiper-wrapper .swiper-slide:nth-child(3) {
     background-image: url(../image/step2/light/bg2_03.jpg);
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
 }
 
 .swiper-container.step2 .swiper-wrapper .swiper-slide:nth-child(4) {
     background-image: url(../image/step2/light/bg2_04.jpg);
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
 }
 
 /*.swiper-wrapper.dark .swiper-slide:nth-child(5) {
     background-image: url(../img/dark/bg2_05.jpg)
 }*/
 
-.swiper-wrapper.dark .window {
+/*.swiper-wrapper.dark .window {
     display: none
-}
+}*/
 
 /*.swiper-wrapper.dark .animate-items .item:nth-child(6) {
     width: 2.28rem;
@@ -419,6 +415,144 @@ body {
 .swiper-container.step2 .swiper-wrapper .animate-items{
     display: none;
 }
+
+.animate-items .item.hide {
+    opacity: 0
+}
+
+.step2-animate-items {
+    display:none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20
+}
+
+.step2-animate-items .cell {
+    position: absolute;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-indent: -9999em;
+    overflow: hidden
+}
+
+.swiper-container.step2 .swiper-wrapper .step2-animate-items{
+    display: block;
+}
+
+.step2-animate-items .cell:nth-child(1){
+    width: .64rem;
+    height: .555rem;
+    left: 2.1rem;
+    top: 4.255rem;
+}
+
+.step2-animate-items .cell:nth-child(2){
+    width: 1.61rem;
+    height: 1.31rem;
+    left: 3.02rem;
+    top: 6.91rem;
+}
+
+.step2-animate-items .cell:nth-child(3){
+    width: 1.58rem;
+    height: .95rem;
+    left: 6.4rem;
+    top: 5.715rem;
+    background-image:url(../image/step2/animate/before/03.png);
+    z-index: 2;
+}
+
+.step2-animate-items .cell:nth-child(4){
+    width: 1.555rem;
+    height: 2.575rem;
+    left: 6.65rem;
+    top: 3.375rem;
+}
+
+.step2-animate-items .cell:nth-child(5){
+    width: .24rem;
+    height: .24rem;
+    left: 10.845rem;
+    top: 3.76rem;
+}
+
+.step2-animate-items .cell:nth-child(6){
+    width: .985rem;
+    height: 1.345rem;
+    left: 11.05rem;
+    top: 6.015rem;
+}
+
+.step2-animate-items .cell:nth-child(7){
+    width: 1.28rem;
+    height: .56rem;
+    left: 13.47rem;
+    top: 6.68rem;
+}
+
+.step2-animate-items .cell:nth-child(8){
+    width: .86rem;
+    height: .705rem;
+    left: 16.415rem;
+    top: 3.85rem;
+}
+
+.step2-animate-items .cell:nth-child(9){
+    width: 1.505rem;
+    height: 1.36rem;
+    left: 16.21rem;
+    top: 0.83rem;
+}
+
+.step2-animate-items .cell:nth-child(10){
+    width: 1.6rem;
+    height: 4.545rem;
+    left: 17.1rem;
+    top: 3.84rem;
+}
+
+.step2-animate-items .cell.after:nth-child(1){
+    background-image:url(../image/step2/animate/after/01.jpg);
+}
+
+.step2-animate-items .cell.after:nth-child(2){
+    background-image:url(../image/step2/animate/after/02.jpg);
+}
+
+.step2-animate-items .cell.after:nth-child(3){
+    background-image:url(../image/step2/animate/after/03.png);
+}
+
+.step2-animate-items .cell.after:nth-child(4){
+    background-image:url(../image/step2/animate/after/04.jpg);
+    width:3.3rem;
+    height:2.97rem;
+    left:6.62rem;
+    top:3.145rem;
+}
+
+.step2-animate-items .cell.after:nth-child(5){
+    background-image:url(../image/step2/animate/after/05.jpg);
+    width:0.925rem;
+    height:0.91rem;
+    left: 10.51rem;
+    top: 3.415rem;
+}
+
+.step2-animate-items .cell.after:nth-child(8){
+    background-image:url(../image/step2/animate/after/08.jpg);
+}
+
+.step2-animate-items .cell.after:nth-child(9){
+    background-image:url(../image/step2/animate/after/09.jpg);
+    height: 1.64rem;
+}
+
+.step2-animate-items .cell.after:nth-child(10){
+    background-image:url(../image/step2/animate/after/10.jpg);
+}
 /*.animate-items .item.after:nth-child(1) {
     background-image: url(../img/animate/after/animate01.jpg)
 }
@@ -455,11 +589,9 @@ body {
     background-image: url(../img/animate/after/animate10.jpg)
 }*/
 
-.animate-items .item.hide {
-    opacity: 0
-}
 
-.noanimate-items .item {
+
+/*.noanimate-items .item {
     position: absolute;
     text-indent: -9999em;
     overflow: hidden
@@ -562,11 +694,11 @@ body {
     height: 1.45rem;
     left: 11.48rem;
     top: 1.32rem
-}
+}*/
 
-.flash-items .item {
+/*.flash-items .item {
     position: absolute
-}
+}*/
 
 .icon-tips {
     position: absolute;
@@ -634,7 +766,21 @@ body {
     display: none
 }
 
-.dialog-progress  {
+.dialog-progress {
+    position: absolute;
+    bottom: .2rem;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: .12rem;
+    font-weight: 700
+}
+
+.dialog-progress.hide{
+    display: none;
+}
+
+.dialog-collect  {
     position: absolute;
     left:0;
     bottom: 0rem;
@@ -647,12 +793,12 @@ body {
     display:none;
     z-index: 1;
 }
-.dialog-progress .tool-wrap {
+.dialog-collect .tool-wrap {
     display: flex;
     height:100%;
 }
 
-.dialog-progress .tool{
+.dialog-collect .tool{
     display: flex;
     justify-content: center;
     align-items:center;
@@ -660,7 +806,7 @@ body {
     height:100%;
 }
 
-.dialog-progress .tool img{
+.dialog-collect .tool img{
     width:100%;
 }
 
@@ -730,7 +876,7 @@ body {
     background-image: url(../image/step1/popup/img/08.jpg);
 }
 
-.dialog-tips .discount-text,.dialog-tips .key-text{
+.dialog-tips .discount-text,.dialog-tips .key-text,.dialog-tips .snippet-text{
     text-align: center;
 }
 
@@ -743,7 +889,7 @@ body {
 
 }
 
-.dialog-tips .discount-text:after,.dialog-tips .key-text:after{
+.dialog-tips .discount-text:after,.dialog-tips .key-text:after,.dialog-tips .snippet-text:after{
     content: '';
     display: inline-block;
 }
@@ -754,7 +900,7 @@ body {
     top: 0;
 }
 
-.dialog-tips .key-text:after{
+.dialog-tips .key-text:after,.dialog-tips .snippet-text:after{
     position: absolute;
 }
 
@@ -862,6 +1008,60 @@ body {
     width: 3.04rem;
     height: 1.59rem;
     background: url(../image/step1/popup/text/key/04.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    margin: -.795rem 0 0 -1.52rem
+}
+
+.dialog-tips .snippet-text.snippet-text_01:after {
+    width: 3.04rem;
+    height: 1.59rem;
+    background: url(../image/step2/popup/text/01.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    margin: -.795rem 0 0 -1.52rem
+}
+
+.dialog-tips .snippet-text.snippet-text_02:after {
+    width: 3.04rem;
+    height: 1.59rem;
+    background: url(../image/step2/popup/text/02.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    margin: -.795rem 0 0 -1.52rem
+}
+
+.dialog-tips .snippet-text.snippet-text_03:after {
+    width: 3.04rem;
+    height: 1.59rem;
+    background: url(../image/step2/popup/text/03.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    margin: -.795rem 0 0 -1.52rem
+}
+
+.dialog-tips .snippet-text.snippet-text_04:after {
+    width: 3.04rem;
+    height: 1.59rem;
+    background: url(../image/step2/popup/text/04.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    margin: -.795rem 0 0 -1.52rem
+}
+
+.dialog-tips .snippet-text.snippet-text_05:after {
+    width: 3.04rem;
+    height: 1.59rem;
+    background: url(../image/step2/popup/text/05.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
+    margin: -.795rem 0 0 -1.52rem
+}
+
+.dialog-tips .snippet-text.snippet-text_06:after {
+    width: 3.04rem;
+    height: 1.59rem;
+    background: url(../image/step2/popup/text/06.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
     margin: -.795rem 0 0 -1.52rem
