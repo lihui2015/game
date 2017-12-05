@@ -51,7 +51,6 @@ $(function() {
     var resources = [ "./css/index.css", "./js/lib/touch.js" ];
 
     var images = [
-        "./image/loading/pointer.png",
         "./image/swipe_tips.png", 
         "./image/step1/btn_check.png", 
         "./image/step1/light/bg2_01.jpg", 
@@ -141,7 +140,8 @@ $(function() {
         "./image/step2/popup/text/04.png",
         "./image/step2/popup/text/05.png",
         "./image/step2/popup/text/06.png",
-        "./image/step2/popup/text/07.png"
+        "./image/step2/popup/text/07.png",
+        "./image/loading/pointer.png"
     ]; 
 
     resources = resources.concat(images);
