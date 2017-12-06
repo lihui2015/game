@@ -156,7 +156,7 @@ $(function() {
               'left': percent + '%'
             })
             setTimeout(function() {
-                $("#audioBg")[0].play();
+                //$("#audioBg")[0].play();
                 $("#jsBgBox").removeClass("dark");
                 if (count == total) {
                     var el = $("#loading");

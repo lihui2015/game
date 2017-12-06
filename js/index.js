@@ -37,27 +37,24 @@ $(function() {
             var count = key1 + key2 + key3 + key4;
             var disc = "";
             if (count == 4) {
-                disc = "恭喜你已顺利找到4件通关信物。不过，属于真正勇者的探险，还在继续......";
+                disc = "恭喜你顺利找齐4件闯关装备，不过属于勇士的探险还在继续。愿生命之光永远照耀你。";
                 showDialog("none", "", disc);
                 $dialog.on("tap", function() {
-                    if($(this).hasClass("finished")){
-                        //$(".lock-key").addClass("show");
+                    if($(this).hasClass("pass")){
                         $(".swiper-container").addClass("step2");
                         $dialogProgress.hide();
                         myScroll.scrollTo(-450,0);
                         scene2();
                     }
-                    
                 });
-                
             }
         };
         var showDialog = function(dTitle, isKey, dDisc, dImg, dTips, index) {
             $dialog.addClass("show");
             var $mask = $dialog.find(".dialog-mask");
             var $audioResult = $("#audioResult")[0];
+            $dialog.removeClass("pass");
             if (isKey == "false"){
-                $dialog.removeClass("finished");
                 $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("discount-img discount-img_" + dImg);
                 $dialogDisc.removeClass("dialog-result").html(dDisc).show();
@@ -65,7 +62,6 @@ $(function() {
                 $dialogTitle.removeClass().addClass("discount-text discount-text_" + dTitle);
                 $dialogTips.removeClass("key-content");
             } else if(isKey == "true"){
-                $dialog.removeClass("finished");
                 isKeyAppear = true;
                 $dialogKey.addClass("hide");
                 $dialogTitle.removeClass().addClass("key-text key-text_" + dTitle);
@@ -73,7 +69,7 @@ $(function() {
                 $dialogTips.addClass("key-content");
                 setTimeout(function(){showResult();},2000);
             }else{
-                $dialog.addClass("finished");
+                $dialog.addClass("pass");
                 $dialogKey.addClass("hide");
                 $dialogTitle.removeClass().addClass("key-text key-text_" + dTitle);
                 $dialogDisc.addClass("dialog-result").html(dDisc).show();
@@ -122,10 +118,10 @@ $(function() {
         };
     }
 
-    scene1();
-    
+    //scene1();
+    scene2();
     function scene2(){
-        var key1 = 0, key2 = 0, key3 = 0, key4 = 0, key5 = 0, key6 = 0;
+        var key = [0,0,0,0,0,0];
         var isFinished = false;
         var count = 0;
         var npcText = [
@@ -158,24 +154,28 @@ $(function() {
                     var Tips = $this.attr("data-tips"), isChecked = $this.attr("data-ischecked");
                     showDialog(isKey, title, Tips, isChecked)
                 }
-            },500)
+            },300)
         });
 
         function showResult(){
             var isKey = "true",
                 title = "07",
-                Tips = "tips",
-                isChecked = "true";
-            if(count == 6){
+                Tips = "终于完成了！“DEJI”快去解锁开门吧！",
+                isChecked = "",
+                sum = 0;
+            for(var i = 1; i < 7; i++){
+                sum += key[i];
+            }
+            if(sum == 6){
                 showDialog(isKey, title, Tips, isChecked);
             }
             
-            $dialog.off().on("tap", function() {
+            $dialog.on("tap", function() {
                 $(this).removeClass("show");
-                if(count == 7){
+                if($(this).hasClass("finished")){
                     $(".lock-key").addClass("show");
+                    boxInput.init();
                 }
-                
             });
         }
 
@@ -184,52 +184,121 @@ $(function() {
             var $progress = $(".dialog-progress span");
             var $audioResult = $("#audioResult")[0];
             var index = Number(dTitle);
-            var dDisc = keyWords[index - 1];
+
+            $dialog.removeClass("finished");
+            $dialogDisc.removeClass("dialog-result");
+
+            if(index == 7){
+                $dialogKey.removeClass("hide");
+                $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
+                $dialogTitle.removeClass().addClass("snippet-text snippet-text_" + dTitle);
+                $dialogDisc.addClass("finish-disc").html(dTips).show();
+                $dialog.addClass("finished");
+            }
 
             if(isKey == "true"){
                 $(".npcText").remove();
                 $dialogTips.removeClass("hide");
-
             }else if(isKey == "false"){
                 $dialogTips.addClass("hide");
                 $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("npc-img npc-img_" + dTitle).html("").append($(npcText[index - 1]));
+                $("#audioNPC" + index)[0].play();
             }
             if(isChecked == "false"){
                 $dialogKey.addClass("hide");
                 $dialogTitle.removeClass().addClass("snippet-text snippet-text_" + dTitle);
-                $dialogDisc.removeClass("dialog-result").html("").hide();
+                $dialogDisc.html("").hide();
                 $dialogTips.addClass("key-content");
                 $("#clue" + dTitle).attr("data-isChecked","true");
+                // setTimeout(function(){
+                //     $dialog.removeClass("show");
+                // },2000);
             }else if(isChecked == "true"){
                 $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
                 $dialogTitle.removeClass();
                 $dialogTips.removeClass("key-content");
                 $("#clue" + dTitle).attr("data-ischecked","false").attr("data-tips","您已经拿到该线索！");
+                $dialogDisc.addClass("snippet-disc").show();
                 if(dTips == "tips"){
                     var keWord = keyWords[count];
                     count ++;
-                    $dialogDisc.removeClass("dialog-result").html(keWord).show();
+                    $dialogDisc.html(keWord);
+                    key[index] = 1;
+                    $audioResult.play();
                 } else if(dTips == "您已经拿到该线索！"){
-                    $dialogDisc.removeClass("dialog-result").html(dTips).show();
+                    $dialogDisc.html(dTips);
                 }
-
                 setTimeout(function(){
                     showResult()
                 },2000);
             }
 
-            var sum = count > 6 ? 6 : count;
-            $progress.html(sum);
+            var number = count > 6 ? 6 : count;
+            $progress.html(number);
 
             $dialog.off().on("tap", function() {
                 $(this).removeClass("show");
                 if(isChecked != "false"){
                     $(".cell").removeClass("after");
+                    $("#audioNPC" + index)[0].pause();
+                    $("#audioNPC" + index)[0].currentTime = '0';
                 }
-                
             });
+        }
+    }
+
+    var container = $("#inputBoxContainer");
+    var boxInput = {
+        maxLength:"",
+        realInput:"",
+        bogusInput:"",
+        bogusInputArr:"",
+        init:function(){
+            var that = this;
+            that.realInput = container.find(".realInput");
+            that.bogusInput = container.find(".num-list");
+            that.bogusInputArr = that.bogusInput.find(".input-item");
+            that.maxLength = that.bogusInputArr.attr("maxlength");
+            
+            that.realInput.focus();
+            that.realInput.on("input change",function(){
+                that.setValue();
+            })
+        },
+        setValue:function(){
+            var real_str = this.realInput.val(),
+                _self = this;
+            //this.realInput.val(real_str);
+            $.each(_self.bogusInputArr,function(k,v){
+                var str = real_str[k]?real_str[k]:"";
+                $(v).val(str);
+            })
+
+            if(real_str.length >= this.maxLength){
+                this.realInput.val(real_str.substring(0,4));
+                $(".lock-key_hd").removeClass("wrong");
+                var result = this.getBoxInputValue();
+                if (result == "deji") {
+                    $(".page-finished").addClass("show");
+                    $(".page-finished p").eq(1).on("webkitAnimationEnd", function() {
+                        $("#pageKV").addClass("show");
+                    });
+                } else {
+                    $(".lock-key_hd").show().addClass("wrong");
+                }
+            }
+        },
+        getBoxInputValue:function(){
+            var realValue = "";
+            for(var i in this.bogusInputArr){
+                if(!this.bogusInputArr[i].value){
+                    break;
+                }
+                realValue += this.bogusInputArr[i].value;
+            }
+            return realValue;
         }
     }
 
@@ -237,40 +306,6 @@ $(function() {
         $(this).remove();
     });
 
-    var keyString = "";
-    var openDoor = function() {
-        var $keystatus = $(".keystatus"), $keystatusItem = $(".keystatus span"), $numItem = $(".num-item"), $lockKeyClose = $(".lock-key_close");
-        var flag = 0;
-        $numItem.on("touchstart", function() {
-            var value = $(this).attr("data-num");
-            flag += 1;
-            if (flag > 4) {
-                $keystatusItem.removeClass("active");
-                $keystatusItem.eq(0).addClass("active");
-                keyString = value;
-                flag = 1;
-                $keystatus.removeClass("wrong");
-            } else {
-                $keystatusItem.eq(flag - 1).addClass("active");
-                keyString += value;
-            }
-            console.log(keyString);
-            if (flag == 4) {
-                if (keyString == "0325") {
-                    $(".page-finished").addClass("show");
-                    $(".page-finished p").eq(1).on("webkitAnimationEnd", function() {
-                        $("#pageKV").addClass("show");
-                    });
-                } else {
-                    $keystatus.addClass("wrong");
-                }
-            }
-        });
-        $lockKeyClose.on("tap", function() {
-            $(".lock-key").removeClass("show");
-        });
-    };
-    openDoor();
     $("#jsMusic").on("tap", function() {
         var music = $(this);
         if(music.hasClass("open")){

@@ -22,7 +22,7 @@
 </head>
 <body onload="loaded()">
 <div id="wrapper">
-    <div class="swiper-container" id="scroller">
+    <div class="swiper-container step2" id="scroller">
         <div class="swiper-wrapper" id="jsBgBox">
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
@@ -100,26 +100,17 @@
     </div>
     <div class="lock-key">
         <div class="lock-key_hd">
-            <p>输入密码</p>
-            <div class="keystatus">
-                <span></span><span></span><span></span><span></span>
+            <p>请输入正确的密码</p>
+        </div>
+        <div class="lock-key_bd" id="inputBoxContainer">
+            <input type="text" class="realInput">
+            <div class="num-list">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
             </div>
         </div>
-        <div class="lock-key_bd">
-            <ul class="num-list">
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item1'});" class="num-item" data-num="1">1 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item2'});" class="num-item" data-num="2">2 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item3'});" class="num-item" data-num="3">3 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item4'});" class="num-item" data-num="4">4 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item5'});" class="num-item" data-num="5">5 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item6'});" class="num-item" data-num="6">6 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item7'});" class="num-item" data-num="7">7 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item8'});" class="num-item" data-num="8">8 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item9'});" class="num-item" data-num="9">9 </li>
-                <li ontouchend="pgvSendClick({hottag:'a20160310mstt.index.num.item0'});" class="num-item" data-num="0">0  </li>
-            </ul>
-        </div>
-        <span class="lock-key_close">取消</span>
     </div>
     <div class="loading" id="loading">
         <div class="loading-animate">
@@ -142,16 +133,12 @@
         <span class="page-kv_link" id="link" ontouchend="pgvSendClick({hottag:'a20160310mstt.index.btn.link'});">了解更多</span>
     </div>
     <div class="page-tips"></div>
-
 </div>
 
-
-<!--<audio id="audioBg" src="./mp3/bg.mp3" loop="true"></audio>
-<audio id="audioLight" src="./mp3/light.mp3"></audio>
-<audio id="audioPoster" src="./mp3/poster.mp3"></audio>
-<audio id="audioTrash" src="./mp3/trash.mp3"></audio>
-<audio id="audioVideo" src="./mp3/video.mp3"></audio>
-<audio id="audioResult" src="./mp3/result.mp3"></audio>-->
+<audio id="audioNPC1" src="./mp3/npc1.mp3"></audio>
+<audio id="audioNPC2" src="./mp3/npc2.mp3"></audio>
+<audio id="audioNPC3" src="./mp3/npc3.mp3"></audio>
+<audio id="audioNPC4" src="./mp3/npc4.mp3"></audio>
 <audio id="audioBg" src="./mp3/bg.mp3" loop="true"></audio>
 <audio id="audioResult" src="./mp3/result.mp3"></audio>
 <audio id="audioBroken" src="./mp3/broken.wav"></audio>
