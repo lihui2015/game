@@ -1395,20 +1395,222 @@ body {
     margin-right:0;
 }
 
-.page-kv {
+.page-validate{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: 2;
+    display: none;
+}
+.page-validate.show{
+    display: block;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+.page-validate .validate-form{
+    width: 4.675rem;
+    height: 3.11rem;
     position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -3.37rem 0 0 -2.34rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(../image/fun/pass-bg.gif);
+}
+
+.page-validate .validate-form .input-item{
+    position: absolute;
+    height: 0.515rem;
+    line-height: 0.515rem;
+    font-size: .2rem;
+    color: #685d5c;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+}
+.page-validate .validate-form .input-item.input-phone{
+    width: 3.425rem;
+    left: 0.625rem;
+    top: 1.19rem;
+    padding-left: 0.465rem;
+}
+.page-validate .validate-form .input-item.input-validate{
+    width: 1.78rem;
+    left: 0.625rem;
+    top: 1.92rem;
+    padding: 0 .1rem;
+}
+.page-validate .sendMessage{
+    position: absolute;
+    width: 1.56rem;
+    height: 0.635rem;
+    left: 2.53rem;
+    top: 1.84rem;
+    text-align: center;
+    color: #fff;
+    font-size: .24rem;
+    line-height: .555rem;
+}
+.page-validate .sendMessage img{
+    width: 1.115rem;
+}
+
+.page-register{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+}
+.page-register.show{
+    display: block;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+.page-register .register-form{
+    width: 4.675rem;
+    height: 3.675rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -3.39rem 0 0 -2.34rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(../image/fun/register.gif);
+}
+.page-register .input-item{
+    position: absolute;
+    width: 3.4rem;
+    height: 0.515rem;
+    line-height: 0.515rem;
+    font-size: .2rem;
+    color: #685d5c;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 .46rem;
+    left: 0.625rem;
+}
+.page-register .input-item.input-phone{
+    top: .535rem;
+}
+.page-register .input-item.input-sex{
+    top: 1.24rem;
+}
+.page-register .input-item.input-name{
+    top: 1.94rem;
+}
+.page-register .input-item.input-birth{
+    top: 2.645rem;
+}
+.page-register .funBtn{
+    margin-top: .3rem;
+}
+
+.page-popup{
+    position: absolute;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+}
+.page-popup.show{
+    display: block;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+.page-popup .popup-content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.page-popup .popup-content.no-pass{
+    background-image:url(../image/fun/unpass.gif);
+    width: 2.97rem;
+    height: 1.68rem;
+    margin: -2.335rem 0 0 -1.485rem;
+}
+.page-popup .popup-content.register-pass{
+    background-image: url(../image/fun/register-pass.gif);
+    width: 2.96rem;
+    height: 1.53rem;
+    margin: -2.45rem 0 0 -1.5rem;
+}
+.page-popup .popupBtn{
+    position: absolute;
+    
+}
+.page-popup .no-pass .popupBtn{
+    top: 1.055rem;
+    left: .79rem;
+    width: 1.41rem;
+    height: .37rem;
+}
+.page-popup .register-pass .popupBtn{
+    top: .88rem;
+    left: .845rem;
+    width: 1.27rem;
+    height: .365rem;
+}
+
+
+.funBtn{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 4.795rem;
+    height: .9rem;
+    margin: -.22rem 0 0 -2.4rem;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 100%;
+    background-image: url(../image/fun/passBtn-bg.png);
+    text-align: center;
+    border: none;
+}
+.funBtn img{
+    width: 1.04rem;
+}
+.funBtn.disabled{
+    background-image: url(../image/fun/passBtn-1.png);
+}
+
+.page-finished {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5.4rem;
+    height: 9.6rem;
     z-index: 99;
-    background: #000 url(../img/KV/bg.jpg) no-repeat;
+    background: #000 url(../image/fun/pass-bg.jpg) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
     display: none
 }
 
-.page-kv.show {
+.page-finished.show {
     display: block;
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
@@ -1418,31 +1620,7 @@ body {
     animation-fill-mode: both
 }
 
-.page-kv_slogan {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin: -2.1rem 0 0 -1.155rem;
-    width: 2.31rem;
-    height: 2.31rem;
-    background: url(../img/KV/slogan.png) no-repeat;
-    -webkit-background-size: 100% 100%;
-    background-size: 100%
-}
-
-.page-kv_logo {
-    position: absolute;
-    left: 50%;
-    bottom: .15rem;
-    margin: 0 0 0 -.6375rem;
-    width: 1.275rem;
-    height: .51rem;
-    background: url(../img/KV/logo.png) no-repeat;
-    -webkit-background-size: 100% 100%;
-    background-size: 100%
-}
-
-.page-kv_text {
+.page-finished_text {
     position: absolute;
     bottom: .9rem;
     left: 0;
@@ -1452,7 +1630,7 @@ body {
     font-size: .09rem
 }
 
-.page-kv_link {
+.page-finished_link {
     position: absolute;
     bottom: .7rem;
     left: 0;
@@ -1483,91 +1661,6 @@ body {
     background: url(../image/swipe_tips.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%
-}
-
-.page-finished {
-    position: absolute;
-    z-index: 99;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255,255,255,.5);
-    text-align: center;
-    display: none
-}
-
-.page-finished h3 {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    margin-top: -.5rem;
-    font-size: .18rem;
-    font-weight: 100;
-    display: none
-}
-
-.page-finished.show {
-    display: block;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both
-}
-
-.page-finished.show h3 {
-    display: block;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear
-}
-
-.page-finished.show p {
-    display: block;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-delay: 3s;
-    animation-delay: 3s;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear
-}
-
-.page-finished.show p:nth-child(3) {
-    -webkit-animation-delay: 6s;
-    animation-delay: 6s
-}
-
-.page-finished p {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    font-size: .15rem;
-    font-weight: 100;
-    display: none
-}
-
-.page-finished p:nth-child(2) {
-    margin-top: -.2rem
-}
-
-.page-finished p:nth-child(3) {
-    margin-top: 0
 }
 
 @-webkit-keyframes flash {

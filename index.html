@@ -22,7 +22,7 @@
 </head>
 <body onload="loaded()">
 <div id="wrapper">
-    <div class="swiper-container step2" id="scroller">
+    <div class="swiper-container" id="scroller">
         <div class="swiper-wrapper" id="jsBgBox">
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
@@ -121,16 +121,38 @@
             <div class="text-percent" id="percent">0%</div>
         </div>
     </div>
-    <div class="page-finished">
-        <h3>您已经通关</h3>
-        <p>记忆的碎片被重新组合</p>
-        <p>曾经的英雄们被慢慢唤醒</p>
+    <div class="page-validate" id="pageValidate">
+        <div class="validate-form">
+            <input type="text" placeholder="请输入你的手机号" class="input-item input-phone">
+            <input type="text" class="input-item input-validate">
+            <button class="sendMessage J_sendMessage">
+                <img src="./image/fun/pass-img.png" alt="">
+            </button>
+        </div>
+        <button class="funBtn J_validate disabled">
+            <img src="./image/fun/validate.png" alt="">
+        </button>
     </div>
-    <div class="page-kv" id="pageKV">
-        <div class="page-kv_slogan"></div>
-        <div class="page-kv_logo"></div>
-        <div class="page-kv_text">分享·致曾经的游戏时光</div>
-        <span class="page-kv_link" id="link" ontouchend="pgvSendClick({hottag:'a20160310mstt.index.btn.link'});">了解更多</span>
+    <div class="page-register">
+        <div class="register-form">
+            <input type="text" placeholder="手机号码" class="input-item input-phone">
+            <input type="text" placeholder="性别" class="input-item input-sex">
+            <input type="text" placeholder="姓名" class="input-item input-name">
+            <input type="data" placeholder="生日" class="input-item input-birth">
+        </div>
+        <button class="funBtn J_register">
+            <img src="./image/fun/register.png" alt="">
+        </button>
+    </div>
+    <div class="page-popup">
+        <div class="popup-content register-pass">
+            <button class="popupBtn"></button>
+        </div>
+        <div class="popup-mask"></div>
+    </div>
+    <div class="page-finished" id="pageKV">
+        <div class="page-finished_text">分享·致曾经的游戏时光</div>
+        <span class="page-finished_link" id="link">了解更多</span>
     </div>
     <div class="page-tips"></div>
 </div>

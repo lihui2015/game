@@ -118,8 +118,8 @@ $(function() {
         };
     }
 
-    //scene1();
-    scene2();
+    scene1();
+    //scene2();
     function scene2(){
         var key = [0,0,0,0,0,0];
         var isFinished = false;
@@ -242,6 +242,9 @@ $(function() {
                 $(this).removeClass("show");
                 if(isChecked != "false"){
                     $(".cell").removeClass("after");
+                    
+                }
+                if(isKey == "false"){
                     $("#audioNPC" + index)[0].pause();
                     $("#audioNPC" + index)[0].currentTime = '0';
                 }
@@ -281,10 +284,12 @@ $(function() {
                 $(".lock-key_hd").removeClass("wrong");
                 var result = this.getBoxInputValue();
                 if (result == "deji") {
-                    $(".page-finished").addClass("show");
-                    $(".page-finished p").eq(1).on("webkitAnimationEnd", function() {
-                        $("#pageKV").addClass("show");
-                    });
+                    $(".page-validate").addClass("show");
+                    $(".lock-key").removeClass("show");
+                    validatePhone();
+                    // $(".page-finished p").eq(1).on("webkitAnimationEnd", function() {
+                    //     $("#pageKV").addClass("show");
+                    // });
                 } else {
                     $(".lock-key_hd").show().addClass("wrong");
                 }
@@ -302,6 +307,92 @@ $(function() {
         }
     }
 
+    var baseUrl = "./djgame/frontend/web/game";
+    var URL = {
+        send: baseUrl + "/send.json",
+        gift: baseUrl + "/gift.json",
+        register: baseUrl + "/register.json"
+    };
+    function validatePhone(){
+        var $pageValidate = $("#pageValidate"),
+            $sendMessage = $(".J_sendMessage"),
+            $validate = $(".J_validate"),
+            $inputPhone = $pageValidate.find(".input-phone"),
+            $inputValidate = $pageValidate.find(".input-validate");
+            count = 60;
+
+        $sendMessage.on("tap",function(){
+            var phone = $.trim($inputPhone.val()),
+                data = {
+                    "mobile": phone
+                };
+            $.ajax({
+                type:"GET",
+                url: URL.send,
+                data:data,
+                success:function(msg){
+                    if(msg.result == 0){
+                        timeCount();
+                    }
+                }
+            })
+        })
+        function timeCount(){
+
+            $sendMessage.html(count + "s");
+
+            if(count == 0){
+                //重新发送
+                $sendMessage.html('<img src="./image/fun/pass-img.png" alt="">');
+                count = 60;
+                return false;
+
+            }else{
+                //60s倒计时
+                count -= 1;
+                setTimeout(function(){
+                    timeCount();
+                },1000)
+            }
+        }
+
+        $validate.on("tap",function(){
+            var phone = $.trim($inputPhone.val()),
+                code = $.trim($inputValidate.val()),
+                data = {
+                    "mobile": phone,
+                    "code": code
+                };
+            $.ajax({
+                type:"GET",
+                url: URL.gift,
+                data:data,
+                success:function(msg){
+
+                    var result = msg.result;
+
+                    if(result == 0){
+                        // 成功
+                        
+                    }else if(result == 1){
+                        // 非会员
+                        
+                    }else if(result == 2){
+                        // 手机号异常
+                        // 会员资料异常，请去德基客服台处理
+                        
+                    }else if(result == 3){
+                        // 已参加过活动
+                        
+                    }else if(result == 4){
+                        // 短信验证码不正确
+                        
+                    }
+                }
+            })
+        })
+    }
+ 
     $(".page-tips").on("tap", function() {
         $(this).remove();
     });
@@ -315,6 +406,7 @@ $(function() {
         }
         music.toggleClass("open");
     });
+
     $("#link").on("tap", function() {
         window.location.href = "http://games.qq.com/a/20160314/031744.htm";
     });
@@ -322,12 +414,19 @@ $(function() {
 
 
 $(function(){
+    var baseUrl = "./djgame/frontend/web/game";
+    var URL = {
+        send: baseUrl + "/send.json",
+        gift: baseUrl + "/gift.json",
+        register: baseUrl + "/register.json"
+    };
     $.ajax({
         type:"GET",
-        url:'./DejiService/egyptgame/presentgifts.json',
-        data:{"mobile":"18205032900"},
+        url: URL.gift,
+        data:{"mobile":"18205032900","code":"6292"},
         success:function(msg){
             console.log(msg);
         }
     })
+
 })

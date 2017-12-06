@@ -141,6 +141,17 @@ $(function() {
         "./image/step2/popup/text/05.png",
         "./image/step2/popup/text/06.png",
         "./image/step2/popup/text/07.png",
+        "./image/fun/pass-bg.gif",
+        "./image/fun/pass-bg.jpg",
+        "./image/fun/pass-btn.png",
+        "./image/fun/pass-img.png",
+        "./image/fun/passBtn-1.png",
+        "./image/fun/passBtn-bg.png",
+        "./image/fun/register-pass.gif",
+        "./image/fun/register.gif",
+        "./image/fun/register.png",
+        "./image/fun/unpass.gif",
+        "./image/fun/validate.png",
         "./image/loading/pointer.png"
     ]; 
 
@@ -156,7 +167,7 @@ $(function() {
               'left': percent + '%'
             })
             setTimeout(function() {
-                //$("#audioBg")[0].play();
+                $("#audioBg")[0].play();
                 $("#jsBgBox").removeClass("dark");
                 if (count == total) {
                     var el = $("#loading");
