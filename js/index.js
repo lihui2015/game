@@ -330,7 +330,7 @@ $(function() {
     boxInput.init();
 
     //恭喜通关
-    //$(".page-register").addClass("show");
+    //$(".page-validate").addClass("show");
     //getAward();
 
     // 全局变量 ajax请求路径
@@ -362,6 +362,7 @@ $(function() {
             $inputGender = $pageRegister.find(".input-gender"),
             $inputName = $pageRegister.find(".input-name"),
             $inputBirth = $pageRegister.find(".input-birth");
+        var registerPhone = "";
 
         $sendMessageBtn.off().on("tap",function(e){
             e.stopPropagation()
@@ -379,7 +380,7 @@ $(function() {
                     url: URL.send,
                     data:data,
                     success:function(response){
-                        response = response.parseJSON();
+                        response = JSON.parse(response);
                         console.log(response);
                         if(response.result == 0){
                             isWaiting = true;
@@ -428,14 +429,24 @@ $(function() {
             if($(this).hasClass("disabled")){
                 return false;
             }
-            var type = "A";
+            ajaxGift("A","A");
+        })
+
+        function ajaxGift(type,isAfterRegister,tell){
             var phone = $.trim($inputPhone.val()),
-                code = $.trim($inputValidate.val()),
-                data = {
-                    "mobile": phone,
-                    "code": code,
-                    "type": type
-                };
+                code = $.trim($inputValidate.val());
+
+            if(isAfterRegister == "B"){
+                code = "register";
+                phone = tell;
+            }
+            console.log(phone);
+            var data = {
+                "mobile": phone,
+                "code": code,
+                "type": type,
+                "reg": isAfterRegister
+            };
             if(!phone.length){
                 alert("请输入您的手机号码")
                 return false;
@@ -445,7 +456,7 @@ $(function() {
                 url: URL.gift,
                 data:data,
                 success:function(response){
-                    response = response.parseJSON();
+                    response = JSON.parse(response);
                     console.log(response);                    
                     var result = response.result,
                         msg = response.message;
@@ -479,7 +490,7 @@ $(function() {
                     }
                 }
             })
-        })
+        }
 
         $inputBirth.on("focus",function(e){
             $(this).attr("type","date");
@@ -492,25 +503,39 @@ $(function() {
                 gender = $inputGender.val(),
                 name = $.trim($inputName.val()),
                 birth = $inputBirth.val();
+
+            var reg = /^1\d{10}$/; 
+
+            if(!reg.test(phone)){
+                alert("请输入11位手机号码");
+                return false;
+            }
+            if(gender == "--"){
+                alert("请输入性别");
+                return false;
+            }
+            if(!name.length){
+                alert("请输入姓名");
+                return false;
+            }
+            if(!birth.length){
+                alert("请输入生日");
+                return false;
+            }
             var data = {
                     "mobile": phone,
                     "gender": gender,
                     "name": name,
                     "birthday": birth
-                };;
-
-            if(!phone.length){
-                alert("请输入手机号码");
-                return false;
-            }
-
+                };
+            registerPhone = phone;
             $.ajax({
                 type:"POST",
                 url: URL.register,
                 data:data,
                 success:function(response){
-                    response = response.parseJSON();
-                    console.log(response);                    
+                    response = JSON.parse(response);
+                    console.log(response);                  
                     var result = response.result,
                         msg = response.message;
 
@@ -521,8 +546,8 @@ $(function() {
                     }else if(result == 1){
                         // 已经是会员，重新登陆
                         //alert("您已经是会员，马上登陆领取积分")
-                        alert(msg);
-                        showValidate();
+                        //alert(msg);
+                        ajaxGift("A","B",phone);
 
                     }else if(result == 2){
                         // 注册失败
@@ -554,24 +579,28 @@ $(function() {
             }
         }
 
-        $popupBtn.on("tap",function(e){
+        $popupBtn.off().on("tap",function(e){
             e.stopPropagation();
             
             $popup.removeClass("show");
 
             if($popupCont.hasClass("no-pass")){
+                // 不是会员
                 $pageValidate.removeClass("show");
                 $pageRegister.addClass("show");
+
             }else if($popupCont.hasClass("register-pass")){
-                showValidate()
+                // 注册成功
+                ajaxGift("A","B",registerPhone)
             }
         })
 
-        $popup.on("tap",function(){
+        $popup.off().on("tap",function(e){
             e.stopPropagation();
             $(this).removeClass("show");
             if($popupCont.hasClass("register-pass")){
-                showValidate()
+                // 注册成功
+                ajaxGift("A","B",registerPhone)
             }
         })
     }

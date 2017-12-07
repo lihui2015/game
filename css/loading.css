@@ -33,7 +33,7 @@
     height: 100%;
     overflow: hidden;
     background-color: #120000;
-    z-index: 100;
+    z-index: 1000;
     color: #fff
 }
 
