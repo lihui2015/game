@@ -331,11 +331,11 @@ $(function() {
     //getAward();
 
     // 全局变量 ajax请求路径
-    var baseUrl = "./djgame/frontend/web/gamehttp://dev.digitalsnail.cn/djgame/frontend/web/game/";
+    var baseUrl = "./djgame/frontend/web/game";
     var URL = {
-        send: baseUrl + "send",
-        gift: baseUrl + "gift",
-        register: baseUrl + "register"
+        send: baseUrl + "/send.json",
+        gift: baseUrl + "/gift.json",
+        register: baseUrl + "/register.json"
     };
 
     /**
@@ -372,11 +372,10 @@ $(function() {
             }
             if (isWaiting === false){
                 $.ajax({
-                    type:"POST",
+                    type:"GET",
                     url: URL.send,
                     data:data,
                     success:function(response){
-                        console.log(response);
                         if(response.result == 0){
                             isWaiting = true;
                             timeCount();
@@ -435,11 +434,11 @@ $(function() {
                 return false;
             }
             $.ajax({
-                type:"POST",
+                type:"GET",
                 url: URL.gift,
                 data:data,
                 success:function(response){
-                    console.log(response);                    
+
                     var result = response.result
                         msg = response.message;
 
@@ -498,11 +497,10 @@ $(function() {
             }
 
             $.ajax({
-                type:"POST",
+                type:"GET",
                 url: URL.register,
                 data:data,
                 success:function(response){
-                    console.log(response);                    
                     var result = response.result,
                         msg = response.message;
 
