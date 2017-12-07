@@ -1388,6 +1388,9 @@ body {
     box-sizing: border-box;
     background:rgba(21,8,6,.65);
 }
+.lock-key .num-list .input-item.active{
+    border-color:#ffba00;
+}
 .lock-key .num-list .input-item:first-child{
     margin-left:0;
 }
@@ -1457,6 +1460,10 @@ body {
     color: #fff;
     font-size: .24rem;
     line-height: .555rem;
+    background:none;
+    border:none;
+    box-sizing: border-box;
+    outline:none;
 }
 .page-validate .sendMessage img{
     width: 1.115rem;
@@ -1507,7 +1514,7 @@ body {
 .page-register .input-item.input-phone{
     top: .535rem;
 }
-.page-register .input-item.input-sex{
+.page-register .input-item.input-gender{
     top: 1.24rem;
 }
 .page-register .input-item.input-name{
@@ -1520,7 +1527,7 @@ body {
     margin-top: .3rem;
 }
 
-.page-popup{
+.popup{
     position: absolute;
     z-index: 3;
     left: 0;
@@ -1530,7 +1537,7 @@ body {
     background-color: rgba(0, 0, 0, .5);
     display: none;
 }
-.page-popup.show{
+.popup.show{
     display: block;
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
@@ -1539,36 +1546,39 @@ body {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both
 }
-.page-popup .popup-content{
+.popup .popup-content{
     position: absolute;
     left: 50%;
     top: 50%;
     background-repeat: no-repeat;
     background-size: 100%;
 }
-.page-popup .popup-content.no-pass{
+.popup .popup-content.no-pass{
     background-image:url(../image/fun/unpass.gif);
     width: 2.97rem;
     height: 1.68rem;
     margin: -2.335rem 0 0 -1.485rem;
 }
-.page-popup .popup-content.register-pass{
+.popup .popup-content.register-pass{
     background-image: url(../image/fun/register-pass.gif);
     width: 2.96rem;
     height: 1.53rem;
     margin: -2.45rem 0 0 -1.5rem;
 }
-.page-popup .popupBtn{
+.popup .popupBtn{
     position: absolute;
+    background:none;
+    border:none;
+    outline:none;
     
 }
-.page-popup .no-pass .popupBtn{
+.popup .no-pass .popupBtn{
     top: 1.055rem;
     left: .79rem;
     width: 1.41rem;
     height: .37rem;
 }
-.page-popup .register-pass .popupBtn{
+.popup .register-pass .popupBtn{
     top: .88rem;
     left: .845rem;
     width: 1.27rem;
@@ -1589,6 +1599,7 @@ body {
     background-image: url(../image/fun/passBtn-bg.png);
     text-align: center;
     border: none;
+    outline: none;
 }
 .funBtn img{
     width: 1.04rem;
@@ -1620,24 +1631,13 @@ body {
     animation-fill-mode: both
 }
 
-.page-finished_text {
-    position: absolute;
-    bottom: .9rem;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    font-size: .09rem
-}
-
 .page-finished_link {
     position: absolute;
-    bottom: .7rem;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    font-size: .09rem
+    width: 2.33rem;
+    height: 0.54rem;
+    left: 50%;
+    top: 50%;
+    margin: 2.48rem 0 0 -1.17rem;
 }
 
 .page-tips {

@@ -4,6 +4,9 @@ $(function() {
     var $dialogTips = $(".dialog-tips");
     var $dialogTitle = $dialogTips.find("div"), $dialogDisc = $dialogTips.find("p");
     
+    /**
+     * 场景1
+     */
     function scene1(){
         var key1 = 0, key2 = 0, key3 = 0, key4 = 0;
         var isKeyAppear = false;
@@ -41,8 +44,9 @@ $(function() {
                 showDialog("none", "", disc);
                 $dialog.on("tap", function() {
                     if($(this).hasClass("pass")){
-                        $(".swiper-container").addClass("step2");
+                        $(this).removeClass("show");
                         $dialogProgress.hide();
+                        $(".swiper-container").addClass("step2");
                         myScroll.scrollTo(-450,0);
                         scene2();
                     }
@@ -67,7 +71,7 @@ $(function() {
                 $dialogTitle.removeClass().addClass("key-text key-text_" + dTitle);
                 $dialogDisc.removeClass("dialog-result").html("").hide();
                 $dialogTips.addClass("key-content");
-                setTimeout(function(){showResult();},2000);
+                //setTimeout(function(){showResult();},2000);
             }else{
                 $dialog.addClass("pass");
                 $dialogKey.addClass("hide");
@@ -109,6 +113,7 @@ $(function() {
                 $mask.removeClass("show");
                 $(this).removeClass("show");
                 $(".item").removeClass("after");
+                showResult();
             });
             $mask.on("tap", function() {
                 $mask.removeClass("show");
@@ -120,6 +125,10 @@ $(function() {
 
     scene1();
     //scene2();
+
+    /**
+     * 场景2
+     */
     function scene2(){
         var key = [0,0,0,0,0,0];
         var isFinished = false;
@@ -141,7 +150,8 @@ $(function() {
 
         $(".dialog-progress").removeClass("hide");
 
-        $(".cell").on("tap", function(e) {
+        $(".cell").off().on("tap", function(e) {
+            e.stopPropagation();
             var $this = $(this);
             var type = $this.attr("data-type"), title = $this.attr("data-title"), disc = $this.attr("data-disc"), isKey = $this.attr("data-iskey"), img = $this.attr("data-img");
 
@@ -149,10 +159,10 @@ $(function() {
 
             setTimeout(function() {
                 if (type == 1) {
-                    showDialog(isKey, title);
+                    showDialog2(isKey, title);
                 } else if(type == 2) {
                     var Tips = $this.attr("data-tips"), isChecked = $this.attr("data-ischecked");
-                    showDialog(isKey, title, Tips, isChecked)
+                    showDialog2(isKey, title, Tips, isChecked)
                 }
             },300)
         });
@@ -167,7 +177,7 @@ $(function() {
                 sum += key[i];
             }
             if(sum == 6){
-                showDialog(isKey, title, Tips, isChecked);
+                showDialog2(isKey, title, Tips, isChecked);
             }
             
             $dialog.on("tap", function() {
@@ -179,18 +189,19 @@ $(function() {
             });
         }
 
-        function showDialog(isKey, dTitle, dTips, isChecked){
+        function showDialog2(isKey, dTitle, dTips, isChecked){
             $dialog.addClass("show");
             var $progress = $(".dialog-progress span");
             var $audioResult = $("#audioResult")[0];
             var index = Number(dTitle);
 
-            $dialog.removeClass("finished");
+            $dialog.removeClass("finished pass");
             $dialogDisc.removeClass("dialog-result");
 
             if(index == 7){
                 $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
+                $dialogTips.removeClass("key-content");
                 $dialogTitle.removeClass().addClass("snippet-text snippet-text_" + dTitle);
                 $dialogDisc.addClass("finish-disc").html(dTips).show();
                 $dialog.addClass("finished");
@@ -242,7 +253,6 @@ $(function() {
                 $(this).removeClass("show");
                 if(isChecked != "false"){
                     $(".cell").removeClass("after");
-                    
                 }
                 if(isKey == "false"){
                     $("#audioNPC" + index)[0].pause();
@@ -252,6 +262,9 @@ $(function() {
         }
     }
 
+    /**
+     * 输入通关密码
+     */
     var container = $("#inputBoxContainer");
     var boxInput = {
         maxLength:"",
@@ -274,6 +287,10 @@ $(function() {
             var real_str = this.realInput.val(),
                 _self = this;
             //this.realInput.val(real_str);
+
+            _self.bogusInputArr.removeClass("active");
+            $(_self.bogusInputArr[real_str.length - 1]).addClass("active");
+
             $.each(_self.bogusInputArr,function(k,v){
                 var str = real_str[k]?real_str[k]:"";
                 $(v).val(str);
@@ -286,10 +303,7 @@ $(function() {
                 if (result == "deji") {
                     $(".page-validate").addClass("show");
                     $(".lock-key").removeClass("show");
-                    validatePhone();
-                    // $(".page-finished p").eq(1).on("webkitAnimationEnd", function() {
-                    //     $("#pageKV").addClass("show");
-                    // });
+                    getAward();
                 } else {
                     $(".lock-key_hd").show().addClass("wrong");
                 }
@@ -307,89 +321,240 @@ $(function() {
         }
     }
 
+
+    //恭喜通关
+    //$(".page-register").addClass("show");
+    //getAward();
+
+    // 全局变量 ajax请求路径
     var baseUrl = "./djgame/frontend/web/game";
     var URL = {
         send: baseUrl + "/send.json",
         gift: baseUrl + "/gift.json",
         register: baseUrl + "/register.json"
     };
-    function validatePhone(){
-        var $pageValidate = $("#pageValidate"),
-            $sendMessage = $(".J_sendMessage"),
-            $validate = $(".J_validate"),
-            $inputPhone = $pageValidate.find(".input-phone"),
-            $inputValidate = $pageValidate.find(".input-validate");
-            count = 60;
 
-        $sendMessage.on("tap",function(){
+    /**
+     * 输入手机号码进行验证
+     */
+    function getAward(){
+        var $pageValidate = $("#pageValidate"),
+            $sendMessageBtn = $(".J_sendMessage"),
+            $validateBtn = $(".J_validate"),
+            $inputPhone = $pageValidate.find(".input-phone"),
+            $inputValidate = $pageValidate.find(".input-validate"),
+            SECOND = 5,
+            waitTime = SECOND,
+            isWaiting = false;
+        var $popup = $(".popup"),
+            $popupCont = $popup.find(".popup-content"),
+            $popupBtn = $popup.find(".popupBtn");
+        var $pageRegister = $("#pageRegister"),
+            $registerBtn = $(".J_register"),
+            $inputPhoneRe = $pageRegister.find(".input-phone"),
+            $inputGender = $pageRegister.find(".input-gender"),
+            $inputName = $pageRegister.find(".input-name"),
+            $inputBirth = $pageRegister.find(".input-birth");
+
+        $sendMessageBtn.off().on("tap",function(e){
+            e.stopPropagation()
             var phone = $.trim($inputPhone.val()),
                 data = {
                     "mobile": phone
                 };
-            $.ajax({
-                type:"GET",
-                url: URL.send,
-                data:data,
-                success:function(msg){
-                    if(msg.result == 0){
-                        timeCount();
+            if(!phone.length){
+                alert("请输入您的手机号码")
+                return false;
+            }
+            if (isWaiting === false){
+                $.ajax({
+                    type:"GET",
+                    url: URL.send,
+                    data:data,
+                    success:function(response){
+                        if(response.result == 0){
+                            isWaiting = true;
+                            timeCount();
+                        }
                     }
-                }
-            })
+                })
+            }
+            
         })
         function timeCount(){
 
-            $sendMessage.html(count + "s");
+            $sendMessageBtn.html(waitTime + "s");
 
-            if(count == 0){
+            if(waitTime == 0){
                 //重新发送
-                $sendMessage.html('<img src="./image/fun/pass-img.png" alt="">');
-                count = 60;
+                $sendMessageBtn.html('<img src="./image/fun/pass-img.png" alt="">');
+                waitTime = SECOND;
+                isWaiting = false;
                 return false;
 
             }else{
                 //60s倒计时
-                count -= 1;
+                waitTime -= 1;
                 setTimeout(function(){
                     timeCount();
                 },1000)
             }
         }
 
-        $validate.on("tap",function(){
+        $inputValidate.on("input change",function(e){
+            var code = $.trim($inputValidate.val());
+
+            if(code.length >= 4){
+                $(this).val(code.substring(0,4));
+                $validateBtn.removeClass("disabled");
+            }else{
+                if(!$validateBtn.hasClass("disabled")){
+                    $validateBtn.addClass("disabled");
+                }
+            }
+        })
+
+        $validateBtn.off().on("tap",function(e){
+            e.stopPropagation();
+            if($(this).hasClass("disabled")){
+                return false;
+            }
             var phone = $.trim($inputPhone.val()),
                 code = $.trim($inputValidate.val()),
                 data = {
                     "mobile": phone,
                     "code": code
                 };
+            if(!phone.length){
+                alert("请输入您的手机号码")
+                return false;
+            }
             $.ajax({
                 type:"GET",
                 url: URL.gift,
                 data:data,
-                success:function(msg){
+                success:function(response){
 
-                    var result = msg.result;
+                    var result = response.result
+                        msg = response.message;
 
                     if(result == 0){
                         // 成功
-                        
+                        $pageValidate.removeClass("show");
+                        $(".page-finished").addClass("show");
+
                     }else if(result == 1){
                         // 非会员
-                        
+                        popup("no-pass");
+
                     }else if(result == 2){
                         // 手机号异常
                         // 会员资料异常，请去德基客服台处理
-                        
+                        //alert("会员资料异常，请去德基客服台处理");
+                        alert(msg);
                     }else if(result == 3){
                         // 已参加过活动
-                        
+                        //alert("您已参加过活动")
+                        alert(msg);
                     }else if(result == 4){
                         // 短信验证码不正确
-                        
+                        //alert("短信验证码不正确，请重新输入")
+                        alert(msg);
                     }
                 }
             })
+        })
+
+        $inputBirth.on("focus",function(e){
+            $(this).attr("type","date");
+            $(this).focus();
+        })
+
+        $registerBtn.off().on("tap",function(e){
+            e.stopPropagation();
+            var phone = $.trim($inputPhoneRe.val()),
+                gender = $inputGender.val(),
+                name = $.trim($inputName.val()),
+                birth = $inputBirth.val();
+            var data = {
+                    "mobile": phone,
+                    "gender": gender,
+                    "name": name,
+                    "birthday": birth
+                };;
+
+            if(!phone.length){
+                alert("请输入手机号码");
+                return false;
+            }
+
+            $.ajax({
+                type:"GET",
+                url: URL.register,
+                data:data,
+                success:function(response){
+                    var result = response.result,
+                        msg = response.message;
+
+                    if(result == 0){
+                        // 注册成功
+                        popup("register-pass");
+
+                    }else if(result == 1){
+                        // 已经是会员，重新登陆
+                        //alert("您已经是会员，马上登陆领取积分")
+                        alert(msg);
+                        showValidate();
+
+                    }else if(result == 2){
+                        // 注册失败
+                        //alert("注册失败，请重新尝试");
+                        alert(msg);
+                    }
+                }
+            })
+        })
+
+        /**
+         * 注册成功/不是会员 弹出框
+         */
+        function popup(str){
+            $popup.addClass("show");
+            $popupCont.removeClass("register-pass no-pass").addClass(str);
+        }
+
+        /**
+         * 显示验证手机号码页面
+         */
+        function showValidate(){
+            $pageRegister.removeClass("show");
+            $inputPhone.val("");
+            $inputValidate.val("");
+            $pageValidate.addClass("show");
+            if(!$validateBtn.hasClass("disabled")){
+                $validateBtn.addClass("disabled")
+            }
+        }
+
+        $popupBtn.on("tap",function(e){
+            e.stopPropagation();
+            
+            $popup.removeClass("show");
+
+            if($popupCont.hasClass("no-pass")){
+                $pageValidate.removeClass("show");
+                $pageRegister.addClass("show");
+            }else if($popupCont.hasClass("register-pass")){
+                showValidate()
+            }
+        })
+
+        $popup.on("tap",function(){
+            e.stopPropagation();
+            $(this).removeClass("show");
+            if($popupCont.hasClass("register-pass")){
+                showValidate()
+            }
         })
     }
  
@@ -398,6 +563,7 @@ $(function() {
     });
 
     $("#jsMusic").on("tap", function() {
+        e.stopPropagation();
         var music = $(this);
         if(music.hasClass("open")){
             $("#audioBg")[0].play();
@@ -408,25 +574,6 @@ $(function() {
     });
 
     $("#link").on("tap", function() {
-        window.location.href = "http://games.qq.com/a/20160314/031744.htm";
+        window.location.href = "http://dev.digitalsnail.cn/djgame/html/";
     });
 });
-
-
-$(function(){
-    var baseUrl = "./djgame/frontend/web/game";
-    var URL = {
-        send: baseUrl + "/send.json",
-        gift: baseUrl + "/gift.json",
-        register: baseUrl + "/register.json"
-    };
-    $.ajax({
-        type:"GET",
-        url: URL.gift,
-        data:{"mobile":"18205032900","code":"6292"},
-        success:function(msg){
-            console.log(msg);
-        }
-    })
-
-})

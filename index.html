@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
-    <title>你玩过ROOM吗？</title>
+    <title>古埃及探秘</title>
     <script>
         (function (doc, win) {
             var docEl = doc.documentElement,
@@ -133,26 +133,32 @@
             <img src="./image/fun/validate.png" alt="">
         </button>
     </div>
-    <div class="page-register">
+    <div class="page-register" id="pageRegister">
         <div class="register-form">
-            <input type="text" placeholder="手机号码" class="input-item input-phone">
-            <input type="text" placeholder="性别" class="input-item input-sex">
-            <input type="text" placeholder="姓名" class="input-item input-name">
-            <input type="data" placeholder="生日" class="input-item input-birth">
+            <input type="text" placeholder="手机号码" class="input-item input-phone" name="phone">
+            <select class="input-item input-gender" name="gender">
+                <option value="--">性别</option>
+                <option value="M">男</option>
+                <option value="F">女</option>
+            </select>
+            <!--<input type="text" placeholder="性别" class="input-item input-gender">-->
+            <input type="text" placeholder="姓名" class="input-item input-name" name="name">
+            <input type="text" placeholder="生日" class="input-item input-birth" name="birthday">
         </div>
         <button class="funBtn J_register">
             <img src="./image/fun/register.png" alt="">
         </button>
     </div>
-    <div class="page-popup">
+    <div class="popup">
         <div class="popup-content register-pass">
             <button class="popupBtn"></button>
         </div>
         <div class="popup-mask"></div>
     </div>
     <div class="page-finished" id="pageKV">
-        <div class="page-finished_text">分享·致曾经的游戏时光</div>
-        <span class="page-finished_link" id="link">了解更多</span>
+        <div class="finished-content">
+            <span class="page-finished_link" id="link"></span>
+        </div>
     </div>
     <div class="page-tips"></div>
 </div>
