@@ -379,6 +379,7 @@ $(function() {
                     url: URL.send,
                     data:data,
                     success:function(response){
+                        response = response.parseJSON();
                         console.log(response);
                         if(response.result == 0){
                             isWaiting = true;
@@ -444,6 +445,7 @@ $(function() {
                 url: URL.gift,
                 data:data,
                 success:function(response){
+                    response = response.parseJSON();
                     console.log(response);                    
                     var result = response.result,
                         msg = response.message;
@@ -507,6 +509,7 @@ $(function() {
                 url: URL.register,
                 data:data,
                 success:function(response){
+                    response = response.parseJSON();
                     console.log(response);                    
                     var result = response.result,
                         msg = response.message;
