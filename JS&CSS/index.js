@@ -445,7 +445,7 @@ $(function() {
                 data:data,
                 success:function(response){
                     console.log(response);                    
-                    var result = response.result,
+                    var result = response.result
                         msg = response.message;
 
                     if(result == 0){
