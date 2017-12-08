@@ -27,7 +27,6 @@ function Share(shareData) {
                     jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']  
                 });  
   
-  
             }  
         }, function callError(e) {  
             alert(e);  
