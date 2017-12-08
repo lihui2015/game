@@ -363,8 +363,7 @@ $(function() {
             $inputGender = $pageRegister.find(".input-gender"),
             $inputName = $pageRegister.find(".input-name"),
             $inputBirth = $pageRegister.find(".input-birth");
-        var registerPhone = "";
-
+        
         $sendMessageBtn.off().on("tap",function(e){
             e.stopPropagation()
             var phone = $.trim($inputPhone.val()),
@@ -441,6 +440,9 @@ $(function() {
                 code = "register";
                 phone = tell;
             }
+            
+            registerPhone = phone;
+
             console.log(phone);
             var data = {
                 "mobile": phone,
