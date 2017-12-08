@@ -704,7 +704,7 @@ body {
 
 .icon-music {
     position: absolute;
-    z-index: 999;
+    z-index: 102;
     right: .3375rem;
     top: .3375rem;
     width: .505rem;
@@ -1649,12 +1649,58 @@ body {
     height: 0.54rem;
     left: 50%;
     top: 50%;
-    margin: 2.48rem 0 0 -1.17rem;
+    margin: 1.755rem 0 0 -1.17rem;
+}
+
+.page-finished_shareLink{
+    position: absolute;
+    width: 2.33rem;
+    height: .53rem;
+    left: 50%;
+    top: 50%;
+    margin: 2.455rem 0 0 -1.17rem;
+}
+
+.page-shareGuide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+    display:none;
+}
+.page-shareGuide.show{
+    display: block;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+.page-shareGuide .share-arrow{
+    color: #ffffff;
+    font-size: .2rem;
+    line-height: .24rem;
+    text-align: right;
+    padding: .71rem .29rem 0 0;
+    background-image: url(../image/fun/share-arrow.png);
+    background-size: .795rem .6rem;
+    background-repeat: no-repeat;
+    background-position: 4.195rem 0;
+    width: 5.4rem;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -3.795rem 0 0 -2.7rem;
 }
 
 .page-tips {
     position: absolute;
-    z-index: 98;
+    z-index: 101;
     left: 0;
     top: 0;
     width: 100%;

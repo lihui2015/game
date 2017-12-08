@@ -606,11 +606,11 @@ $(function() {
         })
     }
  
-    $(".page-tips").on("tap", function() {
+    $(".page-tips").off().on("tap", function() {
         $(this).remove();
     });
 
-    $("#jsMusic").on("tap", function(e) {
+    $("#jsMusic").off().on("tap", function(e) {
         e.stopPropagation();
         var music = $(this);
         if(music.hasClass("open")){
@@ -621,7 +621,11 @@ $(function() {
         music.toggleClass("open");
     });
 
-    $("#link").on("tap", function() {
+    $("#link").off().on("tap", function() {
         window.location.href = "http://dev.digitalsnail.cn/djgame/html/";
+    });
+
+    $("#shareLink").off().on("tap", function() {
+        $("#pageShare").addClass("show");
     });
 });
