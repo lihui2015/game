@@ -350,7 +350,7 @@ $(function() {
             $validateBtn = $(".J_validate"),
             $inputPhone = $pageValidate.find(".input-phone"),
             $inputValidate = $pageValidate.find(".input-validate"),
-            SECOND = 5,
+            SECOND = 60,
             waitTime = SECOND,
             isWaiting = false;
         var $popup = $(".popup"),

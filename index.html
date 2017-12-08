@@ -21,9 +21,25 @@
     <link rel="stylesheet" type="text/css" href="./css/loading.css">
 </head>
 <body onload="loaded()">
+    <div class="lock-key">
+        <div class="lock-key_hd">
+            <p>请输入正确的密码</p>
+        </div>
+        <div class="lock-key_bd" id="inputBoxContainer">
+            <input type="text" class="realInput">
+            <div class="num-list">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
+                <input type="text" class="input-item" value="" maxlength="4" disabled="">
+            </div>
+        </div>
+    </div>
+    <i class="icon-music" id="jsMusic"></i>
 <div id="wrapper">
+    
     <div class="swiper-container" id="scroller">
-        <div class="swiper-wrapper" id="jsBgBox">
+        <div class="swiper-wrapper dark" id="jsBgBox">
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
@@ -78,7 +94,8 @@
             </div>
         </div>
     </div>
-    <i class="icon-music" id="jsMusic"></i>
+    
+    
     <div class="dialog" id="dialogBox">
         <div class="dialog-key">
             <div class="key-img"></div>
@@ -98,20 +115,7 @@
             <div class="tool J_tool"></div>
         </div>
     </div>
-    <div class="lock-key">
-        <div class="lock-key_hd">
-            <p>请输入正确的密码</p>
-        </div>
-        <div class="lock-key_bd" id="inputBoxContainer">
-            <input type="text" class="realInput">
-            <div class="num-list">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-            </div>
-        </div>
-    </div>
+    
     <div class="loading" id="loading">
         <div class="loading-animate">
             <div class="animate-item">
