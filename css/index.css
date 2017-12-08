@@ -1375,6 +1375,7 @@ body {
 	-moz-opacity:0; 
 	opacity:0;
     box-sizing: border-box;
+    color:transparent;
 }
 
 .lock-key .num-list {
