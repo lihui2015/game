@@ -167,7 +167,8 @@ $(function() {
               'left': percent + '%'
             })
             setTimeout(function() {
-                
+                //$("#audioBg")[0].play();
+                $("#jsMusic").trigger("tap");
                 $("#jsBgBox").removeClass("dark");
                 if (count == total) {
                     var el = $("#loading");
@@ -175,7 +176,6 @@ $(function() {
                     setTimeout(function() {
                         $(el).remove();
                         $("#jsMusic").addClass("show");
-                        $("#audioBg")[0].play();
                     }, 1000);
                 }
             }, 500);

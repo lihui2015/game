@@ -613,12 +613,12 @@ $(function() {
     $("#jsMusic").off().on("tap", function(e) {
         e.stopPropagation();
         var music = $(this);
-        if(music.hasClass("open")){
+        if(music.hasClass("pause")){
             $("#audioBg")[0].play();
         }else{
             $("#audioBg")[0].pause();
         }
-        music.toggleClass("open");
+        music.toggleClass("pause");
     });
 
     $("#link").off().on("tap", function() {
