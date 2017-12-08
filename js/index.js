@@ -184,6 +184,7 @@ $(function() {
                 $(this).removeClass("show");
                 if($(this).hasClass("finished")){
                     $(".lock-key").addClass("show");
+                    $("#inputBoxContainer .realInput").trigger("click").focus();
                     boxInput.init();
                 }
             });
