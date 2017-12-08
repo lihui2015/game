@@ -21,23 +21,8 @@
     <link rel="stylesheet" type="text/css" href="./css/loading.css">
 </head>
 <body onload="loaded()">
-    <div class="lock-key">
-        <div class="lock-key_hd">
-            <p>请输入正确的密码</p>
-        </div>
-        <div class="lock-key_bd" id="inputBoxContainer">
-            <input type="text" class="realInput">
-            <div class="num-list">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-                <input type="text" class="input-item" value="" maxlength="4" disabled="">
-            </div>
-        </div>
-    </div>
-    <i class="icon-music" id="jsMusic"></i>
-<div id="wrapper">
     
+<div id="wrapper">
     <div class="swiper-container" id="scroller">
         <div class="swiper-wrapper dark" id="jsBgBox">
             <div class="swiper-slide"></div>
@@ -94,8 +79,21 @@
             </div>
         </div>
     </div>
-    
-    
+    <div class="lock-key">
+        <div class="lock-key_hd">
+            <p>请输入正确的密码</p>
+        </div>
+        <div class="lock-key_bd" id="inputBoxContainer">
+            <input type="password" class="realInput" autofocus="autofocus" unselectable="on">
+            <div class="num-list">
+                <input type="url" class="input-item" value="" maxlength="4" disabled="">
+                <input type="url" class="input-item" value="" maxlength="4" disabled="">
+                <input type="url" class="input-item" value="" maxlength="4" disabled="">
+                <input type="url" class="input-item" value="" maxlength="4" disabled="">
+            </div>
+        </div>
+    </div>
+    <i class="icon-music" id="jsMusic"></i>
     <div class="dialog" id="dialogBox">
         <div class="dialog-key">
             <div class="key-img"></div>
@@ -127,8 +125,8 @@
     </div>
     <div class="page-validate" id="pageValidate">
         <div class="validate-form">
-            <input type="text" placeholder="请输入你的手机号" class="input-item input-phone">
-            <input type="text" class="input-item input-validate">
+            <input type="tel" placeholder="请输入你的手机号" class="input-item input-phone">
+            <input type="tel" class="input-item input-validate">
             <button class="sendMessage J_sendMessage">
                 <img src="./image/fun/pass-img.png" alt="">
             </button>
@@ -139,7 +137,7 @@
     </div>
     <div class="page-register" id="pageRegister">
         <div class="register-form">
-            <input type="text" placeholder="手机号码" class="input-item input-phone" name="phone">
+            <input type="tel" placeholder="手机号码" class="input-item input-phone" name="phone">
             <select class="input-item input-gender" name="gender">
                 <option value="--">性别</option>
                 <option value="M">男</option>
