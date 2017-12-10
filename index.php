@@ -98,7 +98,7 @@ $signPackage = $jssdk->GetSignPackage();
             </div>
         </div>
     </div>
-    <i class="icon-music pause" id="jsMusic"></i>
+    <i class="icon-music" id="jsMusic"></i>
     <div class="dialog" id="dialogBox">
         <div class="dialog-key">
             <div class="key-img"></div>
@@ -237,7 +237,7 @@ $signPackage = $jssdk->GetSignPackage();
      * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
      */
     wx.config({
-        debug: true,
+        debug: false,
         appId: '<?php echo $signPackage["appId"];?>',
         timestamp: <?php echo $signPackage["timestamp"];?>,
         nonceStr: '<?php echo $signPackage["nonceStr"];?>',
@@ -251,7 +251,6 @@ $signPackage = $jssdk->GetSignPackage();
             'onMenuShareQZone'
         ]
     });
-    var registerPhone = ""; //全局变量-手机号码
 </script>
 <script src="./js/weixinshare.js"></script>
 </body>

@@ -9,17 +9,17 @@ wx.ready(function () {
         imgUrl: 'http://dev.digitalsnail.cn/djgame/html/image/loading/pointer.png',
         trigger: function (res) {
             // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-            alert('用户点击发送给朋友');
+            //alert('用户点击发送给朋友');
         },
         success: function (res) {
             //alert('已分享');
             ajaxGift();
         },
         cancel: function (res) {
-            alert('已取消');
+            //alert('已取消');
         },
         fail: function (res) {
-            alert(JSON.stringify(res));
+            alert("分享失败，请稍后重试");
         }
     });
 
@@ -31,17 +31,17 @@ wx.ready(function () {
         imgUrl: 'http://dev.digitalsnail.cn/djgame/html/image/loading/pointer.png',
         trigger: function (res) {
             // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-            alert('用户点击分享到朋友圈');
+            //alert('用户点击分享到朋友圈');
         },
         success: function (res) {
             //alert('已分享');
             ajaxGift();
         },
         cancel: function (res) {
-            alert('已取消');
+            //alert('已取消');
         },
         fail: function (res) {
-            alert(JSON.stringify(res));
+            alert("分享失败，请稍后重试");
         }
     });
 
@@ -52,17 +52,16 @@ wx.error(function (res) {
 
 function ajaxGift(){
     var phone = registerPhone,
-        code = "share",
         type = "B",
-        reg = "B";
+        reg = "C";
 
-    console.log(phone);
     var data = {
         "mobile": phone,
-        "code": code,
         "type": type,
         "reg": reg
     };
+
+    //alert(JSON.stringify(data));
 
     $.ajax({
         type:"POST",

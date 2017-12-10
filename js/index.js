@@ -1,3 +1,12 @@
+// 全局变量 ajax请求路径
+var baseUrl = "http://dev.digitalsnail.cn/djgame/frontend/web/game/";
+var URL = {
+    send: baseUrl + "send",
+    gift: baseUrl + "gift",
+    register: baseUrl + "register"
+};
+var registerPhone = ""; //全局变量-手机号码
+
 $(function() {
     var $bgbox = $("#jsBgBox");
     var $dialog = $("#dialogBox"), $dialogKey = $dialog.find(".dialog-key");
@@ -45,10 +54,13 @@ $(function() {
                 $dialog.on("tap", function() {
                     if($(this).hasClass("pass")){
                         $(this).removeClass("show");
+                        $("body").addClass("blink");
                         $dialogProgress.hide();
-                        $(".swiper-container").addClass("step2");
-                        myScroll.scrollTo(-450,0);
-                        scene2();
+                        setTimeout(function (argument) {
+                            $(".swiper-container").addClass("step2");
+                            myScroll.scrollTo(-450,0);
+                            scene2();
+                        },1000)
                     }
                 });
             }
@@ -124,7 +136,7 @@ $(function() {
     }
 
     scene1();
-    scene2();
+    //scene2();
 
     /**
      * 场景2
@@ -176,8 +188,6 @@ $(function() {
             for(var i = 0; i < 6; i++){
                 sum = sum + key[i];
             }
-
-            console.log(sum);
 
             if(dTitle == "07"){
                 Tips = "终于完成了！“DEJI”快去解锁开门吧！";
@@ -347,14 +357,6 @@ $(function() {
     //$(".page-validate").addClass("show");
     //getAward();
 
-    // 全局变量 ajax请求路径
-    var baseUrl = "http://dev.digitalsnail.cn/djgame/frontend/web/game/";
-    var URL = {
-        send: baseUrl + "send",
-        gift: baseUrl + "gift",
-        register: baseUrl + "register"
-    };
-
     /**
      * 输入手机号码进行验证
      */
@@ -379,14 +381,18 @@ $(function() {
         
         $sendMessageBtn.off().on("tap",function(e){
             e.stopPropagation()
-            var phone = $.trim($inputPhone.val()),
-                data = {
-                    "mobile": phone
-                };
-            if(!phone.length){
-                alert("请输入您的手机号码")
+            var phone = $.trim($inputPhone.val());
+                
+            var reg = /^1\d{10}$/; 
+
+            if(!reg.test(phone)){
+                alert("请输入11位手机号码");
                 return false;
             }
+            var data = {
+                    "mobile": phone
+                };
+
             if (isWaiting === false){
                 $.ajax({
                     type:"POST",
@@ -398,6 +404,8 @@ $(function() {
                         if(response.result == 0){
                             isWaiting = true;
                             timeCount();
+                        }else{
+                            alert("验证码发送失败，请检查手机号码输入是否正确后重新尝试获取验证码")
                         }
                     }
                 })
@@ -442,31 +450,30 @@ $(function() {
             if($(this).hasClass("disabled")){
                 return false;
             }
-            ajaxGift("A","A");
-        })
-
-        function ajaxGift(type,isAfterRegister,tell){
             var phone = $.trim($inputPhone.val()),
                 code = $.trim($inputValidate.val());
 
-            if(isAfterRegister == "B"){
-                code = "register";
-                phone = tell;
-            }
-            
-            registerPhone = phone;
-
-            console.log(phone);
-            var data = {
-                "mobile": phone,
-                "code": code,
-                "type": type,
-                "reg": isAfterRegister
-            };
-            if(!phone.length){
-                alert("请输入您的手机号码")
+            var reg = /^1\d{10}$/; 
+            if(!reg.test(phone)){
+                alert("请输入11位手机号码");
                 return false;
             }
+            ajaxGift(phone,"A","A",code);
+        })
+
+        function ajaxGift(phone,type,reg,code){
+            var data = {
+                "mobile": phone,
+                "type": type,
+                "reg": reg
+            };
+            if(!code.length){
+                data.code = code;
+            }
+
+            registerPhone = phone;
+            console.log(data);
+
             $.ajax({
                 type:"POST",
                 url: URL.gift,
@@ -607,7 +614,7 @@ $(function() {
 
             }else if($popupCont.hasClass("register-pass")){
                 // 注册成功
-                ajaxGift("A","B",registerPhone)
+                ajaxGift(registerPhone,"A","B","")
             }
         })
 
@@ -616,7 +623,7 @@ $(function() {
             $(this).removeClass("show");
             if($popupCont.hasClass("register-pass")){
                 // 注册成功
-                ajaxGift("A","B",registerPhone)
+                ajaxGift(registerPhone,"A","B","")
             }
         })
     }

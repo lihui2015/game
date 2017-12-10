@@ -11,7 +11,37 @@ body {
     margin:0;
     padding:0;
 }
+html{
+    background: #000;
+}
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+        
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+body.blink{
+    -webkit-animation: blink 2.5s both;
+    animation: blink 2.5s both
+}
 #wrapper {
     position: absolute;
     z-index: 1;
