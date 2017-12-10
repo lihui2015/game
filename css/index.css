@@ -777,7 +777,7 @@ body {
     margin-top:5.245rem;
 }
 .dialog-tips p.finish-disc{
-    margin-top:5.615rem;
+    margin-top:1.46rem;
 }
 
 .dialog-tips.hide {
@@ -1041,7 +1041,7 @@ body {
     background: url(../image/step2/popup/text/01.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin-left:-1.265rem
+    margin: .64rem 0 0 -1.265rem
 }
 
 .dialog-tips .snippet-text.snippet-text_02:after {
@@ -1049,7 +1049,7 @@ body {
     background: url(../image/step2/popup/text/02.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin-left:-1.4025rem
+    margin: .64rem 0 0 -1.4025rem
 }
 
 .dialog-tips .snippet-text.snippet-text_03:after {
@@ -1057,7 +1057,7 @@ body {
     background: url(../image/step2/popup/text/03.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin-left:-1.265rem
+    margin: .64rem 0 0 -1.265rem
 }
 
 .dialog-tips .snippet-text.snippet-text_04:after {
@@ -1065,7 +1065,7 @@ body {
     background: url(../image/step2/popup/text/04.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin-left:-1.5425rem
+    margin: .64rem 0 0 -1.5425rem
 }
 
 .dialog-tips .snippet-text.snippet-text_05:after {
@@ -1073,7 +1073,7 @@ body {
     background: url(../image/step2/popup/text/05.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin-left:-1.265rem;
+    margin: .64rem 0 0 -1.265rem;
 }
 
 .dialog-tips .snippet-text.snippet-text_06:after {
@@ -1081,7 +1081,13 @@ body {
     background: url(../image/step2/popup/text/06.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin-left:-1.6625rem;
+    margin: .64rem 0 0 -1.6625rem;
+}
+.dialog-tips .snippet-text.snippet-text_07{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .dialog-tips .snippet-text.snippet-text_07:after {
@@ -1089,7 +1095,66 @@ body {
     background: url(../image/step2/popup/text/07.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin:-1.12rem 0 0 -1.07rem;
+    margin:.64rem 0 0 -1.07rem;
+}
+
+.dialog.bg-white{
+    background: rgba(255,255,255,0.1);
+}
+
+.dialog-key .transition-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.dialog-key .transition-img:after{
+    content: "";
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.dialog-key .transition-img.transition-img_01:after{
+    width: 1.505rem;
+    height: 1.34rem;
+    margin: -1.415rem 0 0 -.75rem;
+    background-image: url(../image/step2/popup/img/key01.png);
+}
+
+.dialog-key .transition-img.transition-img_02:after{
+    width: 1.62rem;
+    height: 1.335rem;
+    margin: -1.32rem 0 0 -.885rem;
+    background-image: url(../image/step2/popup/img/key02.png);
+}
+
+.dialog-key .transition-img.transition-img_03:after{
+    width: 2.405rem;
+    height: 1.105rem;
+    margin: -1.1rem 0 0 -1.255rem;
+    background-image: url(../image/step2/popup/img/key03.png);
+}
+
+.dialog-key .transition-img.transition-img_04:after{
+    width: 1.905rem;
+    height: 0.905rem;
+    margin: -1.1rem 0 0 -1.05rem;
+    background-image: url(../image/step2/popup/img/key04.png);
+}
+
+.dialog-key .transition-img.transition-img_05:after{
+    width: 1.905rem;
+    height: 1.505rem;
+    margin: -1.51rem 0 0 -1.05rem;
+    background-image: url(../image/step2/popup/img/key05.png);
+}
+
+.dialog-key .transition-img.transition-img_06:after{
+    width: 1.985rem;
+    height: 1.93rem;
+    margin: -2.065rem 0 0 -.965rem;
+    background-image: url(../image/step2/popup/img/key06.png);
 }
 
 .dialog-key .snippet-img {
@@ -1160,6 +1225,11 @@ body {
     height: 1.61rem;
     left: 2.175rem;
     top: 0.97rem;
+}
+
+.dialog-key .snippet-img.snippet-img_07{
+    top: 50%;
+    margin-top: -2.23rem;
 }
 
 .dialog-key .snippet-img.snippet-img_07:after {
@@ -1294,6 +1364,12 @@ body {
     -webkit-background-size: 100% 100%;
     background-size: 100%;
     display: none;
+}
+
+.dialog-mask.more{
+    background-image:url(../image/step2/popup/img/more-btn.png);
+    top: 50%;
+    margin-top: 2.23rem;  
 }
 
 .dialog-mask.show {

@@ -124,7 +124,7 @@ $(function() {
     }
 
     scene1();
-    //scene2();
+    scene2();
 
     /**
      * 场景2
@@ -167,17 +167,25 @@ $(function() {
             },300)
         });
 
-        function showResult(){
-            var isKey = "true",
-                title = "07",
-                Tips = "终于完成了！“DEJI”快去解锁开门吧！",
+        function showResult(dTitle){
+            var isKey = "",
+                title = "",
+                Tips = "",
                 isChecked = "",
                 sum = 0;
-            for(var i = 1; i < 7; i++){
-                sum += key[i];
+            for(var i = 0; i < 6; i++){
+                sum = sum + key[i];
             }
-            if(sum == 6){
-                showDialog2(isKey, title, Tips, isChecked);
+
+            console.log(sum);
+
+            if(dTitle == "07"){
+                Tips = "终于完成了！“DEJI”快去解锁开门吧！";
+                showDialog2("true", dTitle, Tips);
+            } else{
+                Tips = keyWords[count - 1];
+                isChecked = "true";
+                showDialog2("true", dTitle, Tips, isChecked);
             }
             
             $dialog.on("tap", function() {
@@ -195,14 +203,16 @@ $(function() {
             var $progress = $(".dialog-progress span");
             var $audioResult = $("#audioResult")[0];
             var index = Number(dTitle);
+            var $mask = $(".dialog-mask");
 
             $dialog.removeClass("finished pass");
+            $dialogKey.removeClass("hide");
             $dialogDisc.removeClass("dialog-result");
 
             if(index == 7){
                 $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
-                $dialogTips.removeClass("key-content");
+                $dialogTips.addClass("key-content");
                 $dialogTitle.removeClass().addClass("snippet-text snippet-text_" + dTitle);
                 $dialogDisc.addClass("finish-disc").html(dTips).show();
                 $dialog.addClass("finished");
@@ -211,53 +221,56 @@ $(function() {
             if(isKey == "true"){
                 $(".npcText").remove();
                 $dialogTips.removeClass("hide");
+                $dialog.addClass("bg-white");
+                dialogFlag = false;
             }else if(isKey == "false"){
                 $dialogTips.addClass("hide");
-                $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("npc-img npc-img_" + dTitle).html("").append($(npcText[index - 1]));
                 $("#audioNPC" + index)[0].play();
+                $dialog.removeClass("bg-white");
+                dialogFlag = true;
             }
-            if(isChecked == "false"){
-                $dialogKey.addClass("hide");
-                $dialogTitle.removeClass().addClass("snippet-text snippet-text_" + dTitle);
-                $dialogDisc.html("").hide();
-                $dialogTips.addClass("key-content");
-                $("#clue" + dTitle).attr("data-isChecked","true");
-
-                if(index == 5){
-                    $("#audioBroken")[0].play();
-                }
-                // setTimeout(function(){
-                //     $dialog.removeClass("show");
-                // },2000);
-            }else if(isChecked == "true"){
-                $dialogKey.removeClass("hide");
+            if(dTips == "您已经拿到该线索！" || isChecked == "true"){
                 $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
                 $dialogTitle.removeClass();
                 $dialogTips.removeClass("key-content");
-                $("#clue" + dTitle).attr("data-ischecked","false").attr("data-tips","您已经拿到该线索！");
+                $dialogDisc.html(dTips);
                 $dialogDisc.addClass("snippet-disc").show();
-                if(dTips == "tips"){
-                    var keWord = keyWords[count];
-                    count ++;
-                    $dialogDisc.html(keWord);
-                    key[index] = 1;
-                    $audioResult.play();
-                } else if(dTips == "您已经拿到该线索！"){
-                    $dialogDisc.html(dTips);
+                dialogFlag = true;
+
+            }else if(dTips == "tips"){
+                $dialogTitle.removeClass().addClass("snippet-text snippet-text_" + dTitle);
+                $dialogKey.find("div").removeClass().addClass("transition-img transition-img_" + dTitle);
+                $mask.addClass("more show");
+                $dialogDisc.html("").hide();
+                $dialogTips.addClass("key-content");
+                if(index == 5){
+                    $("#audioBroken")[0].play();
                 }
-                setTimeout(function(){
-                    showResult()
-                },2000);
+                //var keWord = keyWords[count];
+                //$dialogDisc.html(keWord);
+                $("#clue" + dTitle).attr("data-tips", "您已经拿到该线索！");
             }
+            $mask.off().on("tap", function() {
+                count ++;
+                key[index - 1] = 1;
+                $mask.removeClass("show more");
+                setTimeout(function() {
+                    showResult(dTitle);
+                }, 200);
+                $audioResult.play();
+            });
 
             var number = count > 6 ? 6 : count;
             $progress.html(number);
-
+            if(number == 6 && isChecked == "true"){
+                setTimeout(function(){
+                    showResult("07");
+                },2000)
+            }
             $dialog.off().on("tap", function() {
-                $(this).removeClass("show");
-                if(isChecked != "false"){
-                    $(".cell").removeClass("after");
+                if (dialogFlag) {
+                    $(this).removeClass("show");
                 }
                 if(isKey == "false"){
                     $("#audioNPC" + index)[0].pause();
