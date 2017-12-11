@@ -136,7 +136,7 @@ $(function() {
     }
 
     scene1();
-    //scene2();
+    scene2();
 
     /**
      * 场景2
@@ -165,6 +165,11 @@ $(function() {
         $(".cell").off().on("tap", function(e) {
             e.stopPropagation();
             var $this = $(this);
+
+            if(($this).hasClass("disable")){
+                return false;
+            }
+            
             var type = $this.attr("data-type"), title = $this.attr("data-title"), disc = $this.attr("data-disc"), isKey = $this.attr("data-iskey"), img = $this.attr("data-img");
 
             $(this).addClass("after");
@@ -202,7 +207,7 @@ $(function() {
                 $(this).removeClass("show");
                 if($(this).hasClass("finished")){
                     $(".lock-key").addClass("show");
-                    $("#inputBoxContainer .realInput").trigger("click").focus();
+                    $("#inputBoxContainer .realInput").val("").trigger("click").focus();
                     boxInput.init();
                 }
             });
@@ -231,7 +236,6 @@ $(function() {
             if(isKey == "true"){
                 $(".npcText").remove();
                 $dialogTips.removeClass("hide");
-                $dialog.addClass("bg-white");
                 dialogFlag = false;
             }else if(isKey == "false"){
                 $dialogTips.addClass("hide");
@@ -285,6 +289,10 @@ $(function() {
                 if(isKey == "false"){
                     $("#audioNPC" + index)[0].pause();
                     $("#audioNPC" + index)[0].currentTime = '0';
+                }
+                //防止点击过快完整密码图不出现
+                if(number == 6){
+                    $(".cell").addClass("disable")
                 }
             });
         }
@@ -350,13 +358,6 @@ $(function() {
             return realValue;
         }
     }
-
-    boxInput.init();
-
-    //恭喜通关
-    //$(".page-validate").addClass("show");
-    //getAward();
-
     /**
      * 输入手机号码进行验证
      */
@@ -515,7 +516,7 @@ $(function() {
             })
         }
 
-        $inputBirth.on("focus",function(e){
+        $inputBirth.on("focus tap input",function(e){
             $(this).attr("type","date");
             $(this).focus();
         })
@@ -630,11 +631,13 @@ $(function() {
  
     $(".page-tips").off().on("tap", function() {
         $(this).remove();
+        $("#jsMusic").trigger("tap");
     });
 
     $("#jsMusic").off().on("tap", function(e) {
         e.stopPropagation();
         var music = $(this);
+        console.log(music.hasClass("pause"))
         if(music.hasClass("pause")){
             $("#audioBg")[0].play();
         }else{

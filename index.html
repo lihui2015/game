@@ -8,11 +8,11 @@
     <script>
         (function (doc, win) {
             var docEl = doc.documentElement,
-                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                    recalc = function () {
-                        var clientWidth = docEl.clientWidth;
-                        docEl.style.fontSize = 100 * (clientWidth / 540) + 'px';
-                    };
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    docEl.style.fontSize = 100 * (clientWidth / 540) + 'px';
+                };
             recalc();
             if (!doc.addEventListener) return;
             win.addEventListener(resizeEvt, recalc, false);
@@ -21,9 +21,9 @@
     <link rel="stylesheet" type="text/css" href="./css/loading.css">
 </head>
 <body onload="loaded()">
-    
+
 <div id="wrapper">
-    <div class="swiper-container" id="scroller">
+    <div class="swiper-container step2" id="scroller">
         <div class="swiper-wrapper dark" id="jsBgBox">
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
@@ -113,7 +113,7 @@
             <div class="tool J_tool"></div>
         </div>
     </div>
-    
+
     <div class="loading" id="loading">
         <div class="loading-animate">
             <div class="animate-item">
@@ -182,6 +182,7 @@
 <script src="./js/lib/iscroll.js"></script>
 <script src="./js/loading.js"></script>
 <script src="./js/index.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 
     var myScroll;

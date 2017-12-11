@@ -103,7 +103,6 @@ $(function() {
         "./image/step1/popup/text/key/02.png",
         "./image/step1/popup/text/key/03.png", 
         "./image/step1/popup/text/key/04.png",
-
         "./image/step2/light/bg2_01.jpg", 
         "./image/step2/light/bg2_02.jpg",
         "./image/step2/light/bg2_03.jpg", 
@@ -173,15 +172,17 @@ $(function() {
               'left': percent + '%'
             })
             setTimeout(function() {
-                //$("#audioBg")[0].play();
-                $("#jsMusic").trigger("tap");
-                $("#jsBgBox").removeClass("dark");
+                
                 if (count == total) {
+                    
+                    $("#jsBgBox").removeClass("dark");
+
                     var el = $("#loading");
                     $(el).addClass("complete");
                     setTimeout(function() {
                         $(el).remove();
                         $("#jsMusic").addClass("show");
+                        
                     }, 1000);
                 }
             }, 500);

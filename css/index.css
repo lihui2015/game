@@ -1071,7 +1071,11 @@ body.blink{
     background: url(../image/step2/popup/text/01.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
+<<<<<<< HEAD
     margin: .64rem 0 0 -1.265rem
+=======
+    margin: .94rem 0 0 -1.265rem
+>>>>>>> update
 }
 
 .dialog-tips .snippet-text.snippet-text_02:after {
@@ -1079,7 +1083,11 @@ body.blink{
     background: url(../image/step2/popup/text/02.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
+<<<<<<< HEAD
     margin: .64rem 0 0 -1.4025rem
+=======
+    margin: .94rem 0 0 -1.4025rem
+>>>>>>> update
 }
 
 .dialog-tips .snippet-text.snippet-text_03:after {
@@ -1087,7 +1095,11 @@ body.blink{
     background: url(../image/step2/popup/text/03.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
+<<<<<<< HEAD
     margin: .64rem 0 0 -1.265rem
+=======
+    margin: .94rem 0 0 -1.265rem
+>>>>>>> update
 }
 
 .dialog-tips .snippet-text.snippet-text_04:after {
@@ -1095,7 +1107,11 @@ body.blink{
     background: url(../image/step2/popup/text/04.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
+<<<<<<< HEAD
     margin: .64rem 0 0 -1.5425rem
+=======
+    margin: .94rem 0 0 -1.5425rem
+>>>>>>> update
 }
 
 .dialog-tips .snippet-text.snippet-text_05:after {
@@ -1103,7 +1119,11 @@ body.blink{
     background: url(../image/step2/popup/text/05.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
+<<<<<<< HEAD
     margin: .64rem 0 0 -1.265rem;
+=======
+    margin: .94rem 0 0 -1.265rem;
+>>>>>>> update
 }
 
 .dialog-tips .snippet-text.snippet-text_06:after {
@@ -1111,7 +1131,11 @@ body.blink{
     background: url(../image/step2/popup/text/06.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
+<<<<<<< HEAD
     margin: .64rem 0 0 -1.6625rem;
+=======
+    margin: .94rem 0 0 -1.6625rem;
+>>>>>>> update
 }
 .dialog-tips .snippet-text.snippet-text_07{
     position: absolute;
@@ -1138,53 +1162,96 @@ body.blink{
     left: 50%;
 }
 
+<<<<<<< HEAD
 .dialog-key .transition-img:after{
+=======
+.dialog-key .transition-img:after,.dialog-key .transition-img:before{
+>>>>>>> update
     content: "";
     position: absolute;
     background-repeat: no-repeat;
     background-size: 100%;
 }
+<<<<<<< HEAD
 
 .dialog-key .transition-img.transition-img_01:after{
+=======
+.dialog-key .transition-img:before{
+    padding: 0.2rem;
+    top: -0.22rem;
+    left: -0.22rem;
+    border: 0.02rem #000 solid;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.dialog-key .transition-img.transition-img_01:after,.dialog-key .transition-img.transition-img_01:before{
+>>>>>>> update
     width: 1.505rem;
     height: 1.34rem;
     margin: -1.415rem 0 0 -.75rem;
     background-image: url(../image/step2/popup/img/key01.png);
 }
 
+<<<<<<< HEAD
 .dialog-key .transition-img.transition-img_02:after{
+=======
+.dialog-key .transition-img.transition-img_02:after,.dialog-key .transition-img.transition-img_02:before{
+>>>>>>> update
     width: 1.62rem;
     height: 1.335rem;
     margin: -1.32rem 0 0 -.885rem;
     background-image: url(../image/step2/popup/img/key02.png);
 }
 
+<<<<<<< HEAD
 .dialog-key .transition-img.transition-img_03:after{
+=======
+.dialog-key .transition-img.transition-img_03:after,.dialog-key .transition-img.transition-img_03:before{
+>>>>>>> update
     width: 2.405rem;
     height: 1.105rem;
     margin: -1.1rem 0 0 -1.255rem;
     background-image: url(../image/step2/popup/img/key03.png);
 }
 
+<<<<<<< HEAD
 .dialog-key .transition-img.transition-img_04:after{
+=======
+.dialog-key .transition-img.transition-img_04:after,.dialog-key .transition-img.transition-img_04:before{
+>>>>>>> update
     width: 1.905rem;
     height: 0.905rem;
     margin: -1.1rem 0 0 -1.05rem;
     background-image: url(../image/step2/popup/img/key04.png);
 }
 
+<<<<<<< HEAD
 .dialog-key .transition-img.transition-img_05:after{
+=======
+.dialog-key .transition-img.transition-img_05:after,.dialog-key .transition-img.transition-img_05:before{
+>>>>>>> update
     width: 1.905rem;
     height: 1.505rem;
     margin: -1.51rem 0 0 -1.05rem;
     background-image: url(../image/step2/popup/img/key05.png);
 }
 
+<<<<<<< HEAD
 .dialog-key .transition-img.transition-img_06:after{
+=======
+.dialog-key .transition-img.transition-img_06:after,.dialog-key .transition-img.transition-img_06:before{
+>>>>>>> update
     width: 1.985rem;
     height: 1.93rem;
     margin: -2.065rem 0 0 -.965rem;
     background-image: url(../image/step2/popup/img/key06.png);
+<<<<<<< HEAD
+=======
+}
+
+.dialog-key .transition-img.transition-img_01:before,.dialog-key .transition-img.transition-img_02:before,.dialog-key .transition-img.transition-img_03:before,.dialog-key .transition-img.transition-img_04:before,.dialog-key .transition-img.transition-img_05:before,.dialog-key .transition-img.transition-img_06:before{
+    background-image: none;
+>>>>>>> update
 }
 
 .dialog-key .snippet-img {
@@ -1773,7 +1840,7 @@ body.blink{
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 100;
+    z-index: 103;
     background: rgba(0,0,0,0.5);
     display:none;
 }
